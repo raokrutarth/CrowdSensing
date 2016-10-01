@@ -1551,7 +1551,7 @@ public class SystemSens extends Service
 
 
     @TargetApi(Build.VERSION_CODES.ECLAIR)
-    private void showNotification()
+    /*private void showNotification()
     {
         CharSequence text = "SystemSens Service";
 
@@ -1567,7 +1567,7 @@ public class SystemSens extends Service
                 getText(R.string.app_name), text, contentIntent);
 
         mNM.notify("SystemSens", NOTIFICATION_ID, notification);
-    }
+    }*/
 
 
 
