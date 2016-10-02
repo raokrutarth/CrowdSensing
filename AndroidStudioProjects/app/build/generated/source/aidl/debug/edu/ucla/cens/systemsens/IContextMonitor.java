@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: D:\\Android_research\\AndroidStudioProjects\\app\\src\\main\\aidl\\edu\\ucla\\cens\\systemsens\\IContextMonitor.aidl
+ * Original file: /home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/src/main/aidl/edu/ucla/cens/systemsens/IContextMonitor.aidl
  */
 package edu.ucla.cens.systemsens;
 public interface IContextMonitor extends android.os.IInterface

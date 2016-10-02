@@ -75,6 +75,7 @@ import edu.ucla.cens.systemsens.util.Uploader;
 import edu.ucla.cens.systemsens.util.Status;
 import edu.ucla.cens.systemsens.util.CircularQueue;
 
+import static java.security.AccessController.getContext;
 
 
 /**
@@ -1551,12 +1552,21 @@ public class SystemSens extends Service
 
 
     @TargetApi(Build.VERSION_CODES.ECLAIR)
-    /*private void showNotification()
+    private void showNotification()
     {
         CharSequence text = "SystemSens Service";
 
-        Notification notification = new Notification(R.drawable.ss, 
-                text, System.currentTimeMillis());
+        Context mContext = getApplicationContext();
+
+        //Notification notification = new Notification(R.drawable.ss,text, System.currentTimeMillis());
+        Notification notification = new Notification.Builder(mContext)
+                .setContentText(text)
+                .setSmallIcon(R.drawable.ss)
+                .setWhen(System.currentTimeMillis())
+                .build();
+
+
+
 
         notification.flags |= Notification.FLAG_NO_CLEAR;
 
@@ -1567,7 +1577,7 @@ public class SystemSens extends Service
                 getText(R.string.app_name), text, contentIntent);
 
         mNM.notify("SystemSens", NOTIFICATION_ID, notification);
-    }*/
+    }
 
 
 

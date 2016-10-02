@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "edu.ucla.cens.systemsens"
-        minSdkVersion 4
-        targetSdkVersion 8
+        minSdkVersion 18
+        targetSdkVersion 23
     }
 
     buildTypes {

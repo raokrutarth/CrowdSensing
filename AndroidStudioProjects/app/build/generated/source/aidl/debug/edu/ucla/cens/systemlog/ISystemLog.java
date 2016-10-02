@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: D:\\Android_research\\AndroidStudioProjects\\app\\src\\main\\aidl\\edu\\ucla\\cens\\systemlog\\ISystemLog.aidl
+ * Original file: /home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/src/main/aidl/edu/ucla/cens/systemlog/ISystemLog.aidl
  */
 package edu.ucla.cens.systemlog;
 public interface ISystemLog extends android.os.IInterface

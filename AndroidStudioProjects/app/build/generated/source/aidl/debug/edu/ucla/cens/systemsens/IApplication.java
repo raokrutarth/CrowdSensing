@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: D:\\Android_research\\AndroidStudioProjects\\app\\src\\main\\aidl\\edu\\ucla\\cens\\systemsens\\IApplication.aidl
+ * Original file: /home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/src/main/aidl/edu/ucla/cens/systemsens/IApplication.aidl
  */
 package edu.ucla.cens.systemsens;
 public interface IApplication extends android.os.IInterface
