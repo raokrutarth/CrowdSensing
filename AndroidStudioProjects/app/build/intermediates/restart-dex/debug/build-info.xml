@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    api-level="23"
+    density="560dpi"
+    format="8"
+    plugin-version="2.2.0"
+    timestamp="759127065501629"
+    token="2650743455075581100"
+    verifier="FULL_BUILD_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="453" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="135" />
+    <task
+        name="verifier"
+        duration="10" />
+
+    <artifact
+        location="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/outputs/apk/app-debug.apk"
+        type="MAIN" />
+
+    <build
+        timestamp="759127065501629"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/outputs/apk/app-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>

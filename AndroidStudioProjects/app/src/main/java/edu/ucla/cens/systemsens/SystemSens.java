@@ -451,10 +451,10 @@ public class SystemSens extends Service
         {
             mLocManager = (LocationManager) getSystemService(
                     LOCATION_SERVICE);
-            mLocManager.requestLocationUpdates(
+            /*mLocManager.requestLocationUpdates(
                     LocationManager.NETWORK_PROVIDER, 
                     MIN_LOC_TIME, MIN_LOC_DIST, 
-                    mLocationListener);
+                    mLocationListener);*/
         }
 
         Intent alarmIntent = new Intent(SystemSens.this, 
@@ -536,8 +536,8 @@ public class SystemSens extends Service
         unregisterReceiver(mSmsReceiver);
         
         // Unregister location updates
-        if (NET_LOC)
-            mLocManager.removeUpdates(mLocationListener);
+        /*if (NET_LOC)
+            mLocManager.removeUpdates(mLocationListener);*/
         
         // Stop further WiFi scanning
         //stopWifiScan();
@@ -637,7 +637,7 @@ public class SystemSens extends Service
         /**
           * Unregister the application. 
           *
-          * @param  app     an implementation of IContextReceiver
+          *  app     an implementation of IContextReceiver
           */
         public void unregister(IContextReceiver receiver)
         {
@@ -1558,8 +1558,8 @@ public class SystemSens extends Service
 
         Context mContext = getApplicationContext();
 
-        //Notification notification = new Notification(R.drawable.ss,text, System.currentTimeMillis());
-        Notification notification = new Notification.Builder(mContext)
+        Notification notification = new Notification(R.drawable.ss,text, System.currentTimeMillis());
+        /*Notification notification = new Notification.Builder(mContext)
                 .setContentText(text)
                 .setSmallIcon(R.drawable.ss)
                 .setWhen(System.currentTimeMillis())
@@ -1573,10 +1573,10 @@ public class SystemSens extends Service
         PendingIntent contentIntent = PendingIntent.getActivity(
                 this, 0, new Intent(), 0);
 
-        notification.setLatestEventInfo(this, 
+        notification.setLatestEventInfo(this,
                 getText(R.string.app_name), text, contentIntent);
 
-        mNM.notify("SystemSens", NOTIFICATION_ID, notification);
+        mNM.notify("SystemSens", NOTIFICATION_ID, notification);*/
     }
 
 
