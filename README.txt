@@ -1,5 +1,3 @@
-This is the branch for development and contribution from Heng
-
 ### Folder Structure ###
 
 AndroidStudioProjects - SystemSens in Android studio
