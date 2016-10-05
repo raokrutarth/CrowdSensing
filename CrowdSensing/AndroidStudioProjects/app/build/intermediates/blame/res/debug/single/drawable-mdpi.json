@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/res/merged/debug/drawable-mdpi/icon.png",
+        "source": "/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/src/main/res/drawable-mdpi/icon.png"
+    },
+    {
+        "merged": "/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/res/merged/debug/drawable-mdpi/ss.png",
+        "source": "/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/src/main/res/drawable-mdpi/ss.png"
+    }
+]

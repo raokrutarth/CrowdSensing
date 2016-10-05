@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_aa99fc0a4454494e6fef3f9026443bce8a6e3853/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_1d8718e390698cce41babccf5a23082785d3df8e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_faa0a4dc8a6f38c313fbc77f4d7c056442609fa6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="802dc2572e63198e09032df1d6b014da56029b18">
+        <dex dex="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_4fef34c5f1d76c06e62a50b74d6e5accd491b525/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="70bb935151bc9efe78a50798ce38c83887b9cfe2">
+        <dex dex="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_bea91d4cee0832682897af2f8f0ef1239d6d8830/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_9f5d8a9eb4dbcfd2a5615ca2155525fcc9b45c5f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/raok/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_27849e80871f1e3eae2f11b9fbfe0485b32f5452/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_2875991d61fcf2fc46d215e88385f84bb7c0b895/classes.dex" />
+    </item>
+
+</items>
