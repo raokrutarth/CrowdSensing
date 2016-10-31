@@ -1,0 +1,113 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .idea\
+* .idea\compiler.xml
+* .idea\copyright\
+* .idea\copyright\profiles_settings.xml
+* .idea\misc.xml
+* .idea\workspace.xml
+* README.md
+* app\
+* app\build.gradle
+* app\src\
+* app\src\main\
+* app\src\main\AndroidManifest.xml
+* app\src\main\aidl\
+* app\src\main\aidl\edu\
+* app\src\main\aidl\edu\ucla\
+* app\src\main\aidl\edu\ucla\cens\
+* app\src\main\aidl\edu\ucla\cens\systemlog\
+* app\src\main\aidl\edu\ucla\cens\systemlog\ISystemLog.aidl
+* app\src\main\aidl\edu\ucla\cens\systemsens\
+* app\src\main\aidl\edu\ucla\cens\systemsens\IApplication.aidl
+* app\src\main\aidl\edu\ucla\cens\systemsens\IContextMonitor.aidl
+* app\src\main\aidl\edu\ucla\cens\systemsens\IContextReceiver.aidl
+* app\src\main\aidl\edu\ucla\cens\systemsens\IPowerMonitor.aidl
+* app\src\main\java\
+* app\src\main\java\edu\
+* app\src\main\java\edu\ucla\
+* app\src\main\java\edu\ucla\cens\
+* app\src\main\java\edu\ucla\cens\systemlog\
+* app\src\main\java\edu\ucla\cens\systemlog\Log.java
+* app\src\main\java\edu\ucla\cens\systemsens\
+* app\src\main\java\edu\ucla\cens\systemsens\SystemSens.java
+* app\src\main\java\edu\ucla\cens\systemsens\SystemSensAlarmReceiver.java
+* app\src\main\java\edu\ucla\cens\systemsens\SystemSensStartup.java
+* app\src\main\java\edu\ucla\cens\systemsens\receivers\
+* app\src\main\java\edu\ucla\cens\systemsens\receivers\CalendarContentObserver.java
+* app\src\main\java\edu\ucla\cens\systemsens\receivers\PhoneStateReceiver.java
+* app\src\main\java\edu\ucla\cens\systemsens\receivers\SmsContentObserver.java
+* app\src\main\java\edu\ucla\cens\systemsens\receivers\SmsReceiver.java
+* app\src\main\java\edu\ucla\cens\systemsens\sensors\
+* app\src\main\java\edu\ucla\cens\systemsens\sensors\ActivityLogger.java
+* app\src\main\java\edu\ucla\cens\systemsens\sensors\CurrentReader.java
+* app\src\main\java\edu\ucla\cens\systemsens\sensors\EventLogger.java
+* app\src\main\java\edu\ucla\cens\systemsens\sensors\NetLogger.java
+* app\src\main\java\edu\ucla\cens\systemsens\sensors\Proc.java
+* app\src\main\java\edu\ucla\cens\systemsens\util\
+* app\src\main\java\edu\ucla\cens\systemsens\util\CircularQueue.java
+* app\src\main\java\edu\ucla\cens\systemsens\util\HashPrinter.java
+* app\src\main\java\edu\ucla\cens\systemsens\util\Status.java
+* app\src\main\java\edu\ucla\cens\systemsens\util\SystemSensDbAdaptor.java
+* app\src\main\java\edu\ucla\cens\systemsens\util\SystemSensWakeLock.java
+* app\src\main\java\edu\ucla\cens\systemsens\util\Uploader.java
+* app\src\main\res\
+* app\src\main\res\drawable-hdpi\
+* app\src\main\res\drawable-hdpi\icon.png
+* app\src\main\res\drawable-hdpi\ss.png
+* app\src\main\res\drawable-ldpi\
+* app\src\main\res\drawable-ldpi\icon.png
+* app\src\main\res\drawable-ldpi\ss.png
+* app\src\main\res\drawable-mdpi\
+* app\src\main\res\drawable-mdpi\icon.png
+* app\src\main\res\drawable-mdpi\ss.png
+* app\src\main\res\layout\
+* app\src\main\res\layout\main.xml
+* app\src\main\res\values\
+* app\src\main\res\values\strings.xml
+* build.gradle
+* build.xml
+* default.properties
+* gradle\
+* gradle\wrapper\
+* gradle\wrapper\gradle-wrapper.jar
+* gradle\wrapper\gradle-wrapper.properties
+* gradlew
+* gradlew.bat
+* settings.gradle
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app\src\main\AndroidManifest.xml
+* res\ => app\src\main\res\
+* src\ => app\src\main\java\
+* src\edu\ucla\cens\systemlog\ISystemLog.aidl => app\src\main\aidl\edu\ucla\cens\systemlog\ISystemLog.aidl
+* src\edu\ucla\cens\systemsens\IApplication.aidl => app\src\main\aidl\edu\ucla\cens\systemsens\IApplication.aidl
+* src\edu\ucla\cens\systemsens\IContextMonitor.aidl => app\src\main\aidl\edu\ucla\cens\systemsens\IContextMonitor.aidl
+* src\edu\ucla\cens\systemsens\IContextReceiver.aidl => app\src\main\aidl\edu\ucla\cens\systemsens\IContextReceiver.aidl
+* src\edu\ucla\cens\systemsens\IPowerMonitor.aidl => app\src\main\aidl\edu\ucla\cens\systemsens\IPowerMonitor.aidl
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

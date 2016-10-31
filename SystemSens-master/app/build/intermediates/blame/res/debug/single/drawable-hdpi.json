@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\Android_research\\SystemSens-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon.png",
+        "source": "D:\\Android_research\\SystemSens-master\\app\\src\\main\\res\\drawable-hdpi\\icon.png"
+    },
+    {
+        "merged": "D:\\Android_research\\SystemSens-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ss.png",
+        "source": "D:\\Android_research\\SystemSens-master\\app\\src\\main\\res\\drawable-hdpi\\ss.png"
+    }
+]
