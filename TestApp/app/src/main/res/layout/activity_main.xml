@@ -16,13 +16,24 @@
         android:text="@string/dcsl_crowdsensing_client"
         android:textSize="24sp" />
 
+    <TextView
+        android:text="Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="200dp"
+        android:id="@+id/statusMessage"
+        tools:text="Status" />
+
     <Button
         android:text="Sync Readings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button"
+        android:layout_marginTop="64dp"
+        android:onClick="syncRClicked"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="94dp"
-        android:onClick="syncRClicked" />
+        android:elevation="7dp" />
 </RelativeLayout>
