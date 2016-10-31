@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TestApp</string>
+    <string name="dcsl_crowdsensing_client">DCSL CrowdSensing Client</string>
 </resources>
