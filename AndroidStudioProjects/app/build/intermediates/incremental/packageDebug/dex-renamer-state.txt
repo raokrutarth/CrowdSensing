@@ -1,0 +1,7 @@
+#Wed Oct 05 11:17:34 EDT 2016
+base.0=/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_bea91d4cee0832682897af2f8f0ef1239d6d8830
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_4fef34c5f1d76c06e62a50b74d6e5accd491b525/classes.dex
+base.1=/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_4fef34c5f1d76c06e62a50b74d6e5accd491b525
+file.0=/home/raok/AndroidResearch/CrowdSensing/AndroidStudioProjects/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_bea91d4cee0832682897af2f8f0ef1239d6d8830/classes.dex
