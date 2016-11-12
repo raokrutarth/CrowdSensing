@@ -635,7 +635,7 @@ public class SystemSens extends Service
         /**
           * Unregister the application. 
           *
-          * @param  app     an implementation of IContextReceiver
+          *   app     an implementation of IContextReceiver
           */
         public void unregister(IContextReceiver receiver)
         {
@@ -1564,7 +1564,9 @@ public class SystemSens extends Service
         notification.setLatestEventInfo(this, 
                 getText(R.string.app_name), text, contentIntent);
 
-        mNM.notify("SystemSens", NOTIFICATION_ID, notification);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
+            mNM.notify("SystemSens", NOTIFICATION_ID, notification);
+        }
     }
 
 

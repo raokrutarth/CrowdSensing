@@ -8,15 +8,6 @@ should evaluate whether these are still needed in your project and if
 so manually move them:
 
 * .gitignore
-* .idea\
-* .idea\compiler.xml
-* .idea\copyright\
-* .idea\copyright\profiles_settings.xml
-* .idea\funf-core-android.iml
-* .idea\misc.xml
-* .idea\modules.xml
-* .idea\vcs.xml
-* .idea\workspace.xml
 * README.md
 * ant.properties
 * build.xml
