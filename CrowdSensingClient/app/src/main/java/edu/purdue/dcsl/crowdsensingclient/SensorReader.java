@@ -21,6 +21,19 @@ public class SensorReader
             res[i] = rand.nextFloat() * (maxX - minX) + minX;
         return res;
     }
+    public float[] getSensorY()
+    {
+        // append timestamp.now() in control log file
+
+        float minX = 10.0f;
+        float maxX = 100.0f;
+
+        Random rand = new Random();
+        float[] res = new float[3];
+        for(int i = 0; i < 3; i++)
+            res[i] = rand.nextFloat() * (maxX - minX) + minX;
+        return res;
+    }
     public float[] getGyro()
     {
         return null;

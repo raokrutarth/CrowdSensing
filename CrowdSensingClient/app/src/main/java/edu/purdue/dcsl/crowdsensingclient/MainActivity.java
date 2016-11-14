@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity
     public final static String CONTROL_LOG = "edu.purdue.dcsl.crowdsensingclient.ControllogFile";
     public static File SDCARD = Environment.getExternalStorageDirectory();
     private static String task_json;
+    private static final String CS_SERVER = "35.160.36.179";
+    private static final int SERVER_PORT = 21567;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -52,20 +54,22 @@ public class MainActivity extends AppCompatActivity
         System.out.println(tskJson);
 
         // call the relevant sensors here
+
         return true;
     }
 
     public static JSONObject getSensorJson(String sensorName)
     {
-        Reading rd = new Reading();
         SensorReader sr = new SensorReader();
         float[] controlReadings;
+        if( sensorName.equals("Gyro") )
+            controlReadings = sr.getSensorY();
+        else
+            controlReadings = sr.getSensorX();
+
+        Reading rd = new Reading();
         rd.setRname(sensorName);
-        controlReadings = sr.getSensorX();
         rd.setAxisReading(controlReadings);
-        rd.setR1(controlReadings[0]);
-        for(int i = 0; i < 10; i++)
-            rd.addMetaData("Access: " + i + "pm");
         return JsonUtil.toJson(rd);
     }
     public JSONObject getControlJson()
@@ -74,7 +78,6 @@ public class MainActivity extends AppCompatActivity
         int entry_n = 1;
         try
         {
-
             File file = new File(SDCARD, CONTROL_LOG);
             StringBuilder text = new StringBuilder();
             ArrayList<String> logFile = new ArrayList<String>();
@@ -118,6 +121,11 @@ public class MainActivity extends AppCompatActivity
                     controlJson.put("Entry" + entry_n++, controlEntry);
                 }
             }
+            // Clear the Control log file
+            File f = new File(SDCARD, CONTROL_LOG);
+            if(f.exists())
+                f.delete();
+
             return controlJson;
         }
         catch (Exception e)
@@ -131,33 +139,28 @@ public class MainActivity extends AppCompatActivity
     {
         try
         {
-            JSONObject jl = getSensorJson("Light");
-            JSONObject ja = getSensorJson("Accel");
+
             TextView tv = (TextView)findViewById(R.id.statusBox);
             tv.setText("Sending Readings & Control Info...");
             tv.append("\n");
-            JSONArray sArr = new JSONArray();
-            sArr.put(jl);
-            sArr.put(ja);
-            JSONObject jc_b = getControlJson();
-            JSONArray cArr = new JSONArray();
-            cArr.put(jc_b);
 
+            JSONObject controlJson = getControlJson();
+            JSONArray sensorArr = new JSONArray();
+            for(int i = 10; i > 0; i--)
+            {
+                JSONObject sensorJson;
+                if(i%2 == 0)
+                    sensorJson = getSensorJson("Gyro");
+                else
+                    sensorJson = getSensorJson("OtherSensor");
+                sensorArr.put(sensorJson);
+            }
             JSONObject finalRes = new JSONObject();
-            finalRes.put("Sensors", sArr );
-            finalRes.put("Control", cArr);
-            tv.append(finalRes.toString());
+            finalRes.put("Sensors", sensorArr );
+            finalRes.put("Control", controlJson);
+            tv.append( finalRes.toString() );
 
-            serverExchange("35.160.36.179", 21567, finalRes.toString() );
-
-            // Clear the Control log file
-            File f = new File(SDCARD, CONTROL_LOG);
-            if(f.exists())
-                f.delete();
-
-        /*Intent intent = new Intent(MainActivity.this, DisplayMessageActivity.class);
-        intent.putExtra(Jmsg, jr);
-        startActivity(intent);*/
+            serverExchange(CS_SERVER, SERVER_PORT, finalRes.toString() );
         }
         catch (Exception ex)
         {
