@@ -13,10 +13,8 @@ import java.io.IOException;
 import java.util.Date;
 
 /**
- * An {@link IntentService} subclass for handling asynchronous task requests in
+ * An IntentService subclass for handling asynchronous task requests in
  * a service on a separate handler thread.
- * <p>
- * TODO: Customize class - update intent actions, extra parameters and static
  * helper methods.
  */
 public class ControlLogger extends IntentService
@@ -28,68 +26,68 @@ public class ControlLogger extends IntentService
         logControl();
     }
 
-    public void logControl()
+    /* This method will run every ~1hr and save
+        the needed control info in a log file */
+    private void logControl()
     {
-
         System.out.println("Control logger called");
-        // this method will run every ~1hr and save
-        // the needed control info in a log file
+
         ControlInfoReader cir = new ControlInfoReader();
         float battery = cir.batteryP();
-        String filename = "controlLog.dat";
-        String string = "" + battery + "\n";
-        System.out.println("battery reading = " + string);
-        FileOutputStream outputStream;
-        try
-        {
-            System.out.println(filename + " created");
-            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-            outputStream.write(string.getBytes());
-            outputStream.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("Writing to log file failed");
-        }
+        String imie = cir.getImei();
+        String signal = cir.getSignalStrength();
+        String logEntry = "" + battery ;
+        logEntry += "," + imie;
+        logEntry += "SignalStrength: " + signal;
+        System.out.println("Logging entry: " + logEntry);
+
+        appendLog(logEntry);
     }
-    public void writeToFile(String message)
+    public static void appendLog(String text)
     {
+        File logFile = new File("sdcard/" + MainActivity.CONTROL_LOG);
+        if (!logFile.exists())
+        {
+            try
+            {
+                logFile.createNewFile();
+            }
+            catch (IOException e)
+            {
+                System.out.println("[+] SD card state valid: " + checkSdCard() );
+                System.out.println("[-] Unable to create new log file");
+                e.printStackTrace();
+            }
+        }
         try
         {
-            out.write(message + "\n");
-            out.close();
+            BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, true));
+            buf.append(text);
+            buf.newLine();
+            buf.close();
         }
         catch (IOException e)
         {
-            System.out.println("[-] Couldn't write to file in ControlLogger");
+            System.out.println("[-] Unable to write to log file");
             e.printStackTrace();
         }
     }
 
-    private void createFileOnDevice(Boolean append) throws IOException
+
+    private static boolean checkSdCard()
     {
-        /*
-         * Function to initially create the log file and it also
-         * writes the time of creation to file.
-         */
-        File Root = Environment.getExternalStorageDirectory();
-        if( Root.canWrite() )
+        /* Checks if external storage is available for read and write */
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state))
         {
-            File  LogFile = new File(Root, "controlLog.dat");
-            FileWriter LogWriter = new FileWriter(LogFile, append);
-            out = new BufferedWriter(LogWriter);
-            Date date = new Date();
-            out.write("Logged at" + String.valueOf(date.getTime() + "\n"));
-            out.close();
+            return true;
         }
-        else
-            System.out.println("[-] Couldn't create file in ControlLogger");
+        return false;
     }
 
 
 
-
-
+/* ############# Auto generated code (don't touch) ################ */
 
 
     // IntentService can perform, e.g. ACTION_FETCH_NEW_ITEMS

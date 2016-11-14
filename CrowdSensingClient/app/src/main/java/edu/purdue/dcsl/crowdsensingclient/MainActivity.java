@@ -21,7 +21,8 @@ import java.net.Socket;
 
 public class MainActivity extends AppCompatActivity
 {
-    public static String Jmsg = "edu.purdue.dcsl.crowdsensingclient.JSON_RESULT";
+    public final static String Jmsg = "edu.purdue.dcsl.crowdsensingclient.JSON_RESULT";
+    public final static String CONTROL_LOG = "edu.purdue.dcsl.crowdsensingclient.ControllogFile";
     private static String task_json;
     private Intent controlLoggerIntent;
     private AlarmManager alarmMgr;
@@ -116,6 +117,12 @@ public class MainActivity extends AppCompatActivity
             tv.append(finalRes.toString());
 
             serverExchange("35.160.36.179", 21567, finalRes.toString() );
+
+            // Clear the Control log file
+            File f = new File("sdcard/" + CONTROL_LOG);
+            if(f.exists())
+                f.delete();
+
         /*Intent intent = new Intent(MainActivity.this, DisplayMessageActivity.class);
         intent.putExtra(Jmsg, jr);
         startActivity(intent);*/

@@ -16,22 +16,22 @@ public class ControlInfoReader
 //            "Clk_rate": "23GHz",
 //            "CPU_uti": "34%"
 
-    public float batteryP()
+    public double batteryP()
     {
-        float minX = 10.0f;
+        float minX = 1.0f;
         float maxX = 100.0f;
         Random rand = new Random();
 
-        return rand.nextFloat() * (maxX - minX) + minX;
+        return rand.nextDouble() * (maxX - minX) + minX;
     }
     public String getImei()
     {
-        return null;
+        return "XXX-YYY-ZZZ";
 
     }
     public String getSignalStrength()
     {
-        return null;
+        return "4G-LTE";
     }
 
 }
