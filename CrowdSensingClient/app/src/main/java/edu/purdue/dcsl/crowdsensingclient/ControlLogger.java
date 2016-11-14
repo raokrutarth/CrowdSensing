@@ -33,19 +33,19 @@ public class ControlLogger extends IntentService
         System.out.println("Control logger called");
 
         ControlInfoReader cir = new ControlInfoReader();
-        float battery = cir.batteryP();
+        double battery = cir.batteryP();
         String imie = cir.getImei();
         String signal = cir.getSignalStrength();
         String logEntry = "" + battery ;
         logEntry += "," + imie;
-        logEntry += "SignalStrength: " + signal;
+        logEntry += "," + signal;
         System.out.println("Logging entry: " + logEntry);
 
         appendLog(logEntry);
     }
     public static void appendLog(String text)
     {
-        File logFile = new File("sdcard/" + MainActivity.CONTROL_LOG);
+        File logFile = new File(MainActivity.SDCARD, MainActivity.CONTROL_LOG);
         if (!logFile.exists())
         {
             try
