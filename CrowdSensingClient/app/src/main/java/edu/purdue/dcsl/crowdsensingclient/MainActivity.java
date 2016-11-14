@@ -71,14 +71,10 @@ public class MainActivity extends AppCompatActivity
     public JSONObject getControlJson()
     {
         JSONObject controlJson = new JSONObject();
+        int entry_n = 1;
         try
         {
-            /*FileInputStream is;
-            File f = new File(SDCARD, CONTROL_LOG);
-            is = new FileInputStream(f);
-            byte[] bytes = new byte[1024];
-            int n = is.read(bytes);
-            is.close();*/
+
             File file = new File(SDCARD, CONTROL_LOG);
             StringBuilder text = new StringBuilder();
             ArrayList<String> logFile = new ArrayList<String>();
@@ -94,30 +90,40 @@ public class MainActivity extends AppCompatActivity
             {
                 System.out.println("Unable to read file in getControlJson()");
             }
-            /*String[] controlEntry = new String[logFile.size()];
-            controlEntry = logFile.toArray( controlEntry);*/
 
             for(String entry : logFile)
             {
+                JSONObject controlEntry = new JSONObject();
                 if(entry != null)
                 {
                     String[] controlReadings = entry.split(",");
                     System.out.println("# of control readings: " + controlReadings.length);
                     for(int i = 0; i < controlReadings.length; ++i )
                     {
-                        Reading r = new Reading();
-                        r.setR1(99 );
-                        r.setRname("battery");
+                        switch(i)
+                        {
+                            case 0:
+                                controlEntry.put("Battery", controlReadings[i]);
+                                break;
+                            case 1:
+                                controlEntry.put("IMIE", controlReadings[i]);
+                                break;
+                            case 2:
+                                controlEntry.put("SignalStrength", controlReadings[i]);
+                                break;
+                        }
+                        if(i > 2)
+                            System.out.println("Extra control readings detected");
                     }
+                    controlJson.put("Entry" + entry_n++, controlEntry);
                 }
-
             }
-            return null;
+            return controlJson;
         }
         catch (Exception e)
         {
-            System.out.println(e.getMessage() );
             System.out.println("Reading from log file failed");
+            System.out.println(e.getMessage() );
             return null;
         }
     }
