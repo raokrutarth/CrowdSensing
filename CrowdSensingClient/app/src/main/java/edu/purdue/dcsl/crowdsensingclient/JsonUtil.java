@@ -4,7 +4,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by raok on 11/11/16.
@@ -19,7 +18,8 @@ public class JsonUtil
     }
     public static JSONObject toJson(Reading reading)
     {
-        try {
+        try
+        {
 
             JSONObject jsonObj = new JSONObject();
             jsonObj.put("Name", reading.getRname());

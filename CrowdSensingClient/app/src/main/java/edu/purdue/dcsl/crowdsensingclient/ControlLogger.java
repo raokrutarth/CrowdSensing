@@ -3,8 +3,14 @@ package edu.purdue.dcsl.crowdsensingclient;
 import android.app.IntentService;
 import android.content.Intent;
 import android.content.Context;
+import android.os.Environment;
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Date;
 
 /**
  * An {@link IntentService} subclass for handling asynchronous task requests in
@@ -15,6 +21,7 @@ import java.io.FileOutputStream;
  */
 public class ControlLogger extends IntentService
 {
+    public static BufferedWriter out;
     @Override
     protected void onHandleIntent(Intent intent)
     {
@@ -23,6 +30,7 @@ public class ControlLogger extends IntentService
 
     public void logControl()
     {
+
         System.out.println("Control logger called");
         // this method will run every ~1hr and save
         // the needed control info in a log file
@@ -44,6 +52,40 @@ public class ControlLogger extends IntentService
             System.out.println("Writing to log file failed");
         }
     }
+    public void writeToFile(String message)
+    {
+        try
+        {
+            out.write(message + "\n");
+            out.close();
+        }
+        catch (IOException e)
+        {
+            System.out.println("[-] Couldn't write to file in ControlLogger");
+            e.printStackTrace();
+        }
+    }
+
+    private void createFileOnDevice(Boolean append) throws IOException
+    {
+        /*
+         * Function to initially create the log file and it also
+         * writes the time of creation to file.
+         */
+        File Root = Environment.getExternalStorageDirectory();
+        if( Root.canWrite() )
+        {
+            File  LogFile = new File(Root, "controlLog.dat");
+            FileWriter LogWriter = new FileWriter(LogFile, append);
+            out = new BufferedWriter(LogWriter);
+            Date date = new Date();
+            out.write("Logged at" + String.valueOf(date.getTime() + "\n"));
+            out.close();
+        }
+        else
+            System.out.println("[-] Couldn't create file in ControlLogger");
+    }
+
 
 
 

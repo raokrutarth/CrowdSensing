@@ -24,7 +24,7 @@
 
         <service
             android:name=".ControlLogger"
-            android:exported="false"></service>
+            android:exported="false" />
     </application>
 
 </manifest>

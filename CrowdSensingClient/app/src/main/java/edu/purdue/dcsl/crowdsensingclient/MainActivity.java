@@ -33,12 +33,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        File f = new File("controlLog.dat");
-        if(!f.exists())
-        {
-            System.out.println("control log file created");
-            new File(getActivity().getFilesDir(),"controlLog.dat"); // getActivity().getFilesDir(),
-        }
         // setup control info logging for every half hour
         controlLoggerIntent = new Intent(getActivity(), ControlLogger.class);
         alarmIntent = PendingIntent.getBroadcast(getBaseContext(), 0, controlLoggerIntent, 0);
