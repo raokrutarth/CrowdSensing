@@ -11,11 +11,6 @@ import java.util.ArrayList;
 
 public class JsonUtil
 {
-    public static String ResultJson(Reading reading)
-    {
-
-        return null;
-    }
     public static JSONObject toJson(Reading reading)
     {
         try

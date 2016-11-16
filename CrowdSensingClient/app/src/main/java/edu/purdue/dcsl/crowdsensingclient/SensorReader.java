@@ -89,7 +89,8 @@ public class SensorReader
     public SensorReader(Context context)
     {
         this.context = context;
-        scheduledRegister();
+        //scheduledRegister();
+        //registeListener();
     }
 
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
@@ -98,6 +99,9 @@ public class SensorReader
 
     public float[] getGyro()
     {
+        registeListener();
+        while(GyroValues[0] == 0.0 )
+            System.out.println("waiting for Gyro");
         return GyroValues;
     }
     public float[] getBaro()
@@ -197,10 +201,14 @@ public class SensorReader
             }
         };
         final ScheduledFuture<?> beeperHandle =
-                scheduler.scheduleAtFixedRate(beeper, 10, 1, HOURS); //regist sensor every hour
-        scheduler.schedule(new Runnable() {
-            public void run() { beeperHandle.cancel(true); }
-        }, 60 * 60, SECONDS); // start after an hour
+                scheduler.scheduleAtFixedRate(beeper, 10, 10, SECONDS); //regist sensor every hour
+        scheduler.schedule(new Runnable()
+        {
+            public void run()
+            {
+                beeperHandle.cancel(true);
+            }
+        }, 10, SECONDS);
     }
 
     public void registeListener()

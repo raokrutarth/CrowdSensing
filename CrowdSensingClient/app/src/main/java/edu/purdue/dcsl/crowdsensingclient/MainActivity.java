@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity
     private static String task_json;
     private static final String CS_SERVER = "35.160.36.179";
     private static final int SERVER_PORT = 21567;
-    // private static context = getApplicationContext();
+    private SensorReader sr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity
                 AlarmManager.INTERVAL_FIFTEEN_MINUTES,
                 AlarmManager.INTERVAL_FIFTEEN_MINUTES,
                 alarmIntent);
+        sr = new SensorReader( getApplicationContext() );
     }
 
     private boolean processTask(String tskJson)
@@ -71,7 +72,6 @@ public class MainActivity extends AppCompatActivity
 
     public JSONObject getSensorJson(String sensorName)
     {
-        SensorReader sr = new SensorReader( getApplicationContext() );
         float[] controlReadings;
         /*public float[3] getGyro()
           public float[1] getBaro()
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity
             }
             catch (IOException e)
             {
-                System.out.println("File path : " + file.getAbsolutePath() );
+                System.out.println("reading from : " + file.getAbsolutePath() );
                 System.out.println("File exists? " + file.exists() );
                 System.out.println("Unable to read file in getControlJson()");
             }
@@ -145,6 +145,10 @@ public class MainActivity extends AppCompatActivity
                             System.out.println("Extra control readings detected");
                     }
                     controlJson.put("Entry" + entry_n++, controlEntry);
+                    // Clear the Control log file
+                    File f = new File(SDCARD, CONTROL_LOG);
+                    if(f.exists())
+                        f.delete();
                 }
             }
             return controlJson;
@@ -173,7 +177,7 @@ public class MainActivity extends AppCompatActivity
                 if(i%2 == 0)
                     sensorJson = getSensorJson("Gyro");
                 else
-                    sensorJson = getSensorJson("OtherSensor");
+                    sensorJson = getSensorJson("Baro");
                 sensorArr.put(sensorJson);
             }
             JSONObject finalRes = new JSONObject();
@@ -212,11 +216,6 @@ public class MainActivity extends AppCompatActivity
 
                     is.close();
                     socket.close();
-
-                    // Clear the Control log file
-                    File f = new File(SDCARD, CONTROL_LOG);
-                    if(f.exists())
-                        f.delete();
                 }
                 catch (Exception e)
                 {

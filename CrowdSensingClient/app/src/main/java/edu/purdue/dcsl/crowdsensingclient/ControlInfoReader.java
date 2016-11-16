@@ -1,6 +1,9 @@
 package edu.purdue.dcsl.crowdsensingclient;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.BatteryManager;
 import android.telephony.TelephonyManager;
 
 import java.util.Random;
@@ -24,14 +27,35 @@ public class ControlInfoReader
         Tmgr = (TelephonyManager) context.getSystemService(context.TELEPHONY_SERVICE);
     }
 
-    public float batteryP()
+    public String getBatteryStatus(Context context)
     {
-        float minX = 10.0f;
-        float maxX = 100.0f;
-        Random rand = new Random();
+        String res = new String();
+        Intent batteryIntent = context.registerReceiver(null,
+                new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        int level = batteryIntent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+        int scale = batteryIntent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
 
-        return rand.nextFloat() * (maxX - minX) + minX;
+        // Error checking that probably isn't needed but I added just in case.
+        if(level == -1 || scale == -1) {
+            res += 50.0f;
+        }
+        else
+            res += ((float)level / (float)scale) * 100.0f;
+
+        int status = batteryIntent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
+
+        boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING ||
+                status == BatteryManager.BATTERY_STATUS_FULL;
+
+        if(isCharging == true){
+           res +="+Charging";
+        }else{
+            res +="+NOT_CHARGING";
+        }
+        return res;
     }
+
+
     public String getImei()
     {
 

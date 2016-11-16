@@ -24,10 +24,11 @@ public class ControlLogger extends IntentService
     @Override
     protected void onHandleIntent(Intent intent)
     {
-        System.out.println("Flag 1");
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < 3; i++)
+        {
             logControl();
-        System.out.println("Flag 2");
+        }
+
     }
 
     /* This method will run every ~1hr and save
@@ -37,11 +38,11 @@ public class ControlLogger extends IntentService
         System.out.println("Control logger called");
 
         ControlInfoReader cir = new ControlInfoReader( getApplicationContext() );
-        double battery = cir.batteryP();
-        String imie = cir.getImei();
+        String batteryInfo = cir.getBatteryStatus( getApplicationContext() );
+        String imei = cir.getImei();
         String signal = cir.getSignalStrength();
-        String logEntry = "" + battery ;
-        logEntry += "," + imie;
+        String logEntry = "" + batteryInfo ;
+        logEntry += "," + imei;
         logEntry += "," + signal;
         System.out.println("Logging entry: " + logEntry);
 
