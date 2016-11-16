@@ -7,10 +7,8 @@ import android.os.Environment;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Date;
 
 /**
  * An IntentService subclass for handling asynchronous task requests in
@@ -19,11 +17,12 @@ import java.util.Date;
  */
 public class ControlLogger extends IntentService
 {
-    public static BufferedWriter out;
     @Override
     protected void onHandleIntent(Intent intent)
     {
+        System.out.println("Flag 1");
         logControl();
+        System.out.println("Flag 2");
     }
 
     /* This method will run every ~1hr and save
@@ -64,6 +63,7 @@ public class ControlLogger extends IntentService
             BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, true));
             buf.append(text);
             buf.newLine();
+            System.out.println("finished writing to " + logFile.getAbsolutePath() );
             buf.close();
         }
         catch (IOException e)
@@ -107,6 +107,10 @@ public class ControlLogger extends IntentService
      * the service is already performing a task this action will be queued.
 
      */
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
 
     public static void startActionFoo(Context context, String param1, String param2) {
         Intent intent = new Intent(context, ControlLogger.class);

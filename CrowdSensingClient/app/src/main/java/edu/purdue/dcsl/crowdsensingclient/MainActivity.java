@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity
 
         // setup control info logging for every half hour
         Intent controlLoggerIntent = new Intent(getActivity(), ControlLogger.class);
+        System.out.println("Flag 0");
+        startActivity(controlLoggerIntent);
+
         PendingIntent alarmIntent = PendingIntent.getBroadcast(getBaseContext(), 0, controlLoggerIntent, 0);
         AlarmManager alarmMgr = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         alarmMgr.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
@@ -79,26 +83,28 @@ public class MainActivity extends AppCompatActivity
         try
         {
             File file = new File(SDCARD, CONTROL_LOG);
-            StringBuilder text = new StringBuilder();
-            ArrayList<String> logFile = new ArrayList<String>();
+            ArrayList<String> logArr = new ArrayList<String>();
             try
             {
                 BufferedReader br = new BufferedReader(new FileReader(file));
                 String line;
                 while ((line = br.readLine()) != null)
-                    logFile.add(line);
+                    logArr.add(line);
                 br.close();
             }
             catch (IOException e)
             {
+                System.out.println("File path : " + file.getAbsolutePath() );
+                System.out.println("File exists? " + file.exists() );
                 System.out.println("Unable to read file in getControlJson()");
             }
 
-            for(String entry : logFile)
+            for(String entry : logArr)
             {
                 JSONObject controlEntry = new JSONObject();
                 if(entry != null)
                 {
+                    System.out.println("entry: " + entry);
                     String[] controlReadings = entry.split(",");
                     System.out.println("# of control readings: " + controlReadings.length);
                     for(int i = 0; i < controlReadings.length; ++i )
@@ -141,7 +147,8 @@ public class MainActivity extends AppCompatActivity
         {
 
             TextView tv = (TextView)findViewById(R.id.statusBox);
-            tv.setText("Sending Readings & Control Info...");
+            tv.setMovementMethod(new ScrollingMovementMethod() );
+            tv.setText("Sending Readings & Control Info...\n");
             tv.append("\n");
 
             JSONObject controlJson = getControlJson();

@@ -8,6 +8,7 @@ import java.util.Random;
 
 public class SensorReader
 {
+    // light reault;
     public float[] getSensorX()
     {
         // append timestamp.now() in control log file
