@@ -1,9 +1,13 @@
 package edu.purdue.dcsl.crowdsensingclient;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.IntentService;
 import android.content.Intent;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -21,7 +25,8 @@ public class ControlLogger extends IntentService
     protected void onHandleIntent(Intent intent)
     {
         System.out.println("Flag 1");
-        logControl();
+        for(int i = 0; i < 5; i++)
+            logControl();
         System.out.println("Flag 2");
     }
 
@@ -85,73 +90,14 @@ public class ControlLogger extends IntentService
         return false;
     }
 
-
-
-/* ############# Auto generated code (don't touch) ################ */
-
-
-    // IntentService can perform, e.g. ACTION_FETCH_NEW_ITEMS
-    private static final String ACTION_FOO = "edu.purdue.dcsl.crowdsensingclient.action.FOO";
-    private static final String ACTION_BAZ = "edu.purdue.dcsl.crowdsensingclient.action.BAZ";
-
-
-    private static final String EXTRA_PARAM1 = "edu.purdue.dcsl.crowdsensingclient.extra.PARAM1";
-    private static final String EXTRA_PARAM2 = "edu.purdue.dcsl.crowdsensingclient.extra.PARAM2";
-
     public ControlLogger() {
         super("ControlLogger");
     }
 
-    /**
-     * Starts this service to perform action Foo with the given parameters. If
-     * the service is already performing a task this action will be queued.
-
-     */
     @Override
-    public void onCreate() {
+    public void onCreate ()
+    {
         super.onCreate();
     }
 
-    public static void startActionFoo(Context context, String param1, String param2) {
-        Intent intent = new Intent(context, ControlLogger.class);
-        intent.setAction(ACTION_FOO);
-        intent.putExtra(EXTRA_PARAM1, param1);
-        intent.putExtra(EXTRA_PARAM2, param2);
-        context.startService(intent);
-    }
-
-    /**
-     * Starts this service to perform action Baz with the given parameters. If
-     * the service is already performing a task this action will be queued.
-     *
-
-     */
-
-    public static void startActionBaz(Context context, String param1, String param2) {
-        Intent intent = new Intent(context, ControlLogger.class);
-        intent.setAction(ACTION_BAZ);
-        intent.putExtra(EXTRA_PARAM1, param1);
-        intent.putExtra(EXTRA_PARAM2, param2);
-        context.startService(intent);
-    }
-
-
-
-    /**
-     * Handle action Foo in the provided background thread with the provided
-     * parameters.
-     */
-    private void handleActionFoo(String param1, String param2) {
-
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
-
-    /**
-     * Handle action Baz in the provided background thread with the provided
-     * parameters.
-     */
-    private void handleActionBaz(String param1, String param2) {
-
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
 }

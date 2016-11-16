@@ -1,11 +1,14 @@
 package edu.purdue.dcsl.crowdsensingclient;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -40,10 +43,12 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        verifyStoragePermissions(this);
+
         // setup control info logging for every half hour
         Intent controlLoggerIntent = new Intent(getActivity(), ControlLogger.class);
         System.out.println("Flag 0");
-        startActivity(controlLoggerIntent);
+        startService(controlLoggerIntent);
 
         PendingIntent alarmIntent = PendingIntent.getBroadcast(getBaseContext(), 0, controlLoggerIntent, 0);
         AlarmManager alarmMgr = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
@@ -52,6 +57,7 @@ public class MainActivity extends AppCompatActivity
                 AlarmManager.INTERVAL_FIFTEEN_MINUTES,
                 alarmIntent);
     }
+
     private boolean processTask(String tskJson)
     {
         System.out.println("Task JSON received: ");
@@ -127,11 +133,6 @@ public class MainActivity extends AppCompatActivity
                     controlJson.put("Entry" + entry_n++, controlEntry);
                 }
             }
-            // Clear the Control log file
-            File f = new File(SDCARD, CONTROL_LOG);
-            if(f.exists())
-                f.delete();
-
             return controlJson;
         }
         catch (Exception e)
@@ -145,7 +146,6 @@ public class MainActivity extends AppCompatActivity
     {
         try
         {
-
             TextView tv = (TextView)findViewById(R.id.statusBox);
             tv.setMovementMethod(new ScrollingMovementMethod() );
             tv.setText("Sending Readings & Control Info...\n");
@@ -198,6 +198,11 @@ public class MainActivity extends AppCompatActivity
 
                     is.close();
                     socket.close();
+
+                    // Clear the Control log file
+                    File f = new File(SDCARD, CONTROL_LOG);
+                    if(f.exists())
+                        f.delete();
                 }
                 catch (Exception e)
                 {
@@ -210,5 +215,25 @@ public class MainActivity extends AppCompatActivity
     private Activity getActivity()
     {
         return MainActivity.this;
+    }
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
+
+    public static void verifyStoragePermissions(Activity activity)
+    {
+        // Check if we have write permission
+        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        while(permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
+        }
     }
 }
