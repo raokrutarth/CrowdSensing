@@ -36,13 +36,14 @@ public class MainActivity extends AppCompatActivity
     private static String task_json;
     private static final String CS_SERVER = "35.160.36.179";
     private static final int SERVER_PORT = 21567;
+    // private static context = getApplicationContext();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        verifyStatePermissions(this);
         verifyStoragePermissions(this);
 
         // setup control info logging for every half hour
@@ -68,15 +69,28 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public static JSONObject getSensorJson(String sensorName)
+    public JSONObject getSensorJson(String sensorName)
     {
-        SensorReader sr = new SensorReader();
+        SensorReader sr = new SensorReader( getApplicationContext() );
         float[] controlReadings;
-        if( sensorName.equals("Gyro") )
-            controlReadings = sr.getSensorY();
-        else
-            controlReadings = sr.getSensorX();
+        /*public float[3] getGyro()
+          public float[1] getBaro()
+          public float[3] getAccl()
+          public float[2] getGPS()*/
 
+        if( sensorName.equals("Gyro") )
+            controlReadings = sr.getGyro();
+        else if(sensorName.equals("Baro") )
+            controlReadings = sr.getBaro();
+        else if(sensorName.equals("Accl") )
+            controlReadings = sr.getAccl();
+        else if(sensorName.equals("GPS") )
+            controlReadings = sr.getGPS();
+        else
+        {
+            System.out.println("Unknown sensor requested");
+            controlReadings = new float[0];
+        }
         Reading rd = new Reading();
         rd.setRname(sensorName);
         rd.setAxisReading(controlReadings);
@@ -235,5 +249,20 @@ public class MainActivity extends AppCompatActivity
                     REQUEST_EXTERNAL_STORAGE
             );
         }
+    }
+    public static void verifyStatePermissions(Activity activity)
+    {
+        // Check if we have write permission
+        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_PHONE_STATE);
+
+        if(permission != PackageManager.PERMISSION_GRANTED)
+        {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions( activity,
+                    new String[]{Manifest.permission.READ_PHONE_STATE},
+                    123);
+        }
+        if(permission == PackageManager.PERMISSION_GRANTED)
+            System.out.println("PHONE state permission granted");
     }
 }

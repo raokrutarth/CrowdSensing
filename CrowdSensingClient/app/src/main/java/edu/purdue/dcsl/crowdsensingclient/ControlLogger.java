@@ -36,7 +36,7 @@ public class ControlLogger extends IntentService
     {
         System.out.println("Control logger called");
 
-        ControlInfoReader cir = new ControlInfoReader();
+        ControlInfoReader cir = new ControlInfoReader( getApplicationContext() );
         double battery = cir.batteryP();
         String imie = cir.getImei();
         String signal = cir.getSignalStrength();
