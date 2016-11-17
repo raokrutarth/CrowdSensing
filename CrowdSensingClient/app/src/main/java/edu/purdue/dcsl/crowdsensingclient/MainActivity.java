@@ -5,6 +5,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,23 +14,35 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.Calendar;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
 {
     public static String Jmsg = "edu.purdue.dcsl.crowdsensingclient.JSON_RESULT";
     private static String task_json;
+    public final static String CONTROL_LOG = "edu.purdue.dcsl.crowdsensingclient.ControllogFile";
+    public final static String GRYO_READING = "edu.purdue.dcsl.crowdsensingclient.GyroReadingFile";
+    public final static String BARO_READING = "edu.purdue.dcsl.crowdsensingclient.BaroReadingFile";
+    public final static String ACCEL_READING = "edu.purdue.dcsl.crowdsensingclient.AccelReadingFile";
+    public final static String SENSOR_CONTROL = "edu.purdue.dcsl.crowdsensingclient.SensorControlFile";
+    public static File SDCARD = Environment.getExternalStorageDirectory();
     private Intent controlLoggerIntent;
+    private Intent gyroIntent;
     private AlarmManager alarmMgr;
+    private SensorReader sr;
     private PendingIntent alarmIntent;
-
-    @Override
+    private PendingIntent alarmIntentGyro;
+ @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -60,7 +73,32 @@ public class MainActivity extends AppCompatActivity
         alarmMgr.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
                 AlarmManager.INTERVAL_HALF_HOUR,
                 AlarmManager.INTERVAL_HALF_HOUR, alarmIntent);
+
+/*
+        gyroIntent = new Intent(getApplicationContext(), GyroService.class);
+        alarmIntentGyro = PendingIntent.getBroadcast(getBaseContext(), 0, gyroIntent,0);
+
+        alarmMgr.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                System.currentTimeMillis(),
+                10, alarmIntentGyro);*/
+
+        Calendar calendar = Calendar.getInstance();
+        AlarmManager myscheduler = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intentGyro = new Intent(getApplicationContext(), GyroService.class);
+        Intent intentBaro = new Intent(getApplicationContext(), BaroService.class);
+        Intent intentAccel = new Intent(getApplicationContext(), AccelService.class);
+
+        PendingIntent scheduleGyroIntent = PendingIntent.getService(getApplicationContext(), 0, intentGyro, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent scheduleBaroIntent = PendingIntent.getService(getApplicationContext(), 0, intentBaro, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent scheduleAccelIntent = PendingIntent.getService(getApplicationContext(), 0, intentAccel, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        myscheduler.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1, scheduleGyroIntent);
+        myscheduler.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1, scheduleBaroIntent);
+        myscheduler.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1, scheduleAccelIntent);
+
+        sr = new SensorReader( getApplicationContext() );
     }
+
     private boolean processTask(String tskJson)
     {
         System.out.println("Task JSON received: ");
@@ -75,7 +113,7 @@ public class MainActivity extends AppCompatActivity
     {
         //TODO: Logic error here. return reading values or control values?
         Reading rd = new Reading();
-        SensorReader sr = new SensorReader(MainActivity.this);
+
         rd.setRname(sensorName);
 
         /*
@@ -88,7 +126,7 @@ public class MainActivity extends AppCompatActivity
         if (sensorName == "Gyro") rd.setAxisReading(sr.getGyro());
         else if (sensorName == "Baro") rd.setAxisReading(sr.getBaro());
         else if (sensorName == "Accel") rd.setAxisReading(sr.getAccl());
-        else if (sensorName == "GPS") rd.setAxisReading(sr.getGPS());
+        //else if (sensorName == "GPS") rd.setAxisReading(sr.getGPS());
         //TODO: what is R1?
 
         //rd.setR1(controlReadings[0]);
@@ -195,4 +233,50 @@ public class MainActivity extends AppCompatActivity
     {
         return MainActivity.this;
     }
+
+
+    public static synchronized void append(String string)
+    {
+        File logFile = new File(MainActivity.SDCARD, MainActivity.SENSOR_CONTROL);
+        if (!logFile.exists())
+        {
+            try
+            {
+                logFile.createNewFile();
+            }
+            catch (IOException e)
+            {
+                System.out.println("[+] SD card state valid: " + checkSdCard() );
+                System.out.println("[-] Unable to create new Sensor control file");
+                e.printStackTrace();
+            }
+        }
+        try
+        {
+            BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, false));
+            buf.append(string);
+            buf.newLine();
+            System.out.println("finished writing to " + logFile.getAbsolutePath() );
+            buf.close();
+        }
+        catch (IOException e)
+        {
+            System.out.println("[-] Unable to write to log file");
+            e.printStackTrace();
+        }
+
+    }
+
+    private static boolean checkSdCard()
+    {
+        /* Checks if external storage is available for read and write */
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state))
+        {
+            return true;
+        }
+        return false;
+    }
+
+
 }

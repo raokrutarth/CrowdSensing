@@ -124,7 +124,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="8a9e4d2de917ced54b7f7365ab6d41b8556cc736">
+        sha1="9e7288443edbcbd199eda2922e394f2ce158acd0">
         <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/CrowdSensing/CrowdSensingClient/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_fa167421a88392d94aff87db05ecedb5bb4c011b/classes.dex" />
     </item>
     <item
@@ -151,7 +151,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="33f6d738eca50762843516b2734d5d19f72da92d">
+        sha1="67363401f036d5a27b118bf8d3ab7681cd496db1">
         <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/CrowdSensing/CrowdSensingClient/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_df17743412d02a44042a18ac59e656617e6a888a/classes.dex" />
     </item>
 

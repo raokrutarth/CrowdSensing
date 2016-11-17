@@ -1,35 +1,21 @@
 package edu.purdue.dcsl.crowdsensingclient;
-import static java.util.concurrent.TimeUnit.*;
 import android.Manifest;
-import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
-import java.security.PublicKey;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
-
-import static android.content.Context.SENSOR_SERVICE;
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 /**
  * Created by raok on 11/11/16.
  */
@@ -40,9 +26,6 @@ public class SensorReader
     private float[] BaroValues = new float[1];
     private float[] AcceValues = new float[3];
     private float[] GPSValues = new float[2]; // first is latitude and second is logitude
-    private List<String> GyroCtl = new ArrayList<String>();
-    private List<String> BaroCtl = new ArrayList<String>();
-    private List<String> AccelCtl = new ArrayList<String>();
 
     public Context context;
     private  long minTime = 30; // millisecondes
@@ -60,33 +43,19 @@ public class SensorReader
     public SensorReader(Context context)
     {
         this.context = context;
-        scheduledRegister();
+        Intent gyroIntent = new Intent(context, GyroService.class);
+        Intent baroIntent = new Intent(context, BaroService.class);
+        Intent accelIntent = new Intent(context, AccelService.class);
+        context.startService(gyroIntent);
+        context.startService(baroIntent);
+        context.startService(accelIntent);
+
+
+
     }
 
-    private final ScheduledExecutorService scheduler =
-            Executors.newScheduledThreadPool(1);
 
-    public void scheduledRegister() {
-        final Runnable beeper = new Runnable() {
-            public void run()
-            {
-                registeListener();
-            }
-        };
-        final ScheduledFuture<?> beeperHandle =
-                scheduler.scheduleAtFixedRate(beeper, 10, 1, HOURS); //regist sensor every hour
-        scheduler.schedule(new Runnable() {
-            public void run() { beeperHandle.cancel(true); }
-        }, 60 * 60, SECONDS); // start after an hour
-    }
 
-    public void registeListener()
-    {
-        mSensorManager = (SensorManager) context.getSystemService(context.SENSOR_SERVICE);
-        mSensorManager.registerListener(mSensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE), SensorManager.SENSOR_DELAY_NORMAL);
-        mSensorManager.registerListener(mSensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
-        mSensorManager.registerListener(mSensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE), SensorManager.SENSOR_DELAY_NORMAL);
-    }
     public LocationListener locListener = new LocationListener(){
         @Override
         public void onStatusChanged(String provider, int status, Bundle extreas){
@@ -107,81 +76,68 @@ public class SensorReader
 
     };
 
-
-    public SensorEventListener mSensorListener = new SensorEventListener() {
-        private static final String TAG = "HelloService";
-        private static final String DEBUG_TAG = "SensorService";
-        private boolean isRunning  = false;
-        private SensorManager sensorManager = null;
-        private Sensor sensor = null;
-        private boolean pressure = false;
-        private boolean gyro = false;
-        private boolean accel= false;
-
-
-        public IBinder onBind(Intent arg0) {
-            Log.i(DEBUG_TAG, "Service onBind");
-            return null;
-        }
-
-        @Override
-        public void onSensorChanged(SensorEvent event) {
-            Log.d("MY_APP", event.toString());
-
-            Sensor sens = event.sensor;
-            Long tsLong = System.currentTimeMillis()/1000;
-            String ts = tsLong.toString();
-            if (!gyro && sens.getType() == Sensor.TYPE_GYROSCOPE){
-                Log.i(DEBUG_TAG, String.valueOf(event.values[0] + sens.getName()));
-                Log.i(DEBUG_TAG, String.valueOf(event.values[1] + sens.getName()));
-                Log.i(DEBUG_TAG, String.valueOf(event.values[2] + sens.getName()));
-                GyroValues[0] = event.values[0];
-                GyroValues[1] = event.values[1];
-                GyroValues[2] = event.values[2];
-                GyroCtl.add(ts);
-                gyro = true;
-            }
-            if (!pressure && sens.getType() == Sensor.TYPE_PRESSURE) {
-                Log.i(DEBUG_TAG, String.valueOf(event.values[0] + sens.getName()));
-                BaroValues[0] = event.values[0];
-                BaroCtl.add(ts);
-                pressure = true;
-            }
-            if (!accel && sens.getType() == Sensor.TYPE_ACCELEROMETER){
-                Log.i(DEBUG_TAG, String.valueOf(event.values[0] + sens.getName()));
-                Log.i(DEBUG_TAG, String.valueOf(event.values[1] + sens.getName()));
-                Log.i(DEBUG_TAG, String.valueOf(event.values[2] + sens.getName()));
-                AcceValues[0] = event.values[0];
-                AcceValues[1] = event.values[1];
-                AcceValues[2] = event.values[2];
-
-                AccelCtl.add(ts);
-                accel = true;
-            }
-
-            if (pressure == true && gyro == true && accel == true) {
-                sensorManager.unregisterListener(this);
-                }
-        }
-
-        @Override
-        public void onAccuracyChanged(Sensor sensor, int accuracy) {
-            Log.d("MY_APP", sensor.toString() + " - " + accuracy);
-        }
-
-    };
     public float[] getGyro()
     {
+        try {
+            File file = new File(MainActivity.SDCARD, MainActivity.GRYO_READING);
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String sCurrentLine;
+            while ((sCurrentLine = br.readLine()) != null) {
+                System.out.println(sCurrentLine);
+                String[] gValues = sCurrentLine.split("_");
+                System.out.println(GyroValues.length);
+                GyroValues[0] = Float.valueOf(gValues[0]);
+                GyroValues[1] = Float.valueOf(gValues[1]);
+                GyroValues[2] = Float.valueOf(gValues[2]);
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+
+        }
+
         return GyroValues;
     }
     public float[] getBaro()
     {
+        try {
+            File file = new File(MainActivity.SDCARD, MainActivity.BARO_READING);
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String sCurrentLine;
+            while ((sCurrentLine = br.readLine()) != null) {
+                System.out.println(sCurrentLine);
+                String[] gValues = sCurrentLine.split("_");
+                System.out.println(BaroValues.length);
+                BaroValues[0] = Float.valueOf(gValues[0]);
+                BaroValues[1] = Float.valueOf(gValues[1]);
+                BaroValues[2] = Float.valueOf(gValues[2]);
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+
+        }
         return BaroValues;
     }
     public float[] getAccl()
     {
+        try {
+            File file = new File(MainActivity.SDCARD, MainActivity.ACCEL_READING);
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String sCurrentLine;
+            while ((sCurrentLine = br.readLine()) != null) {
+                System.out.println(sCurrentLine);
+                String[] gValues = sCurrentLine.split("_");
+                System.out.println(AcceValues.length);
+                AcceValues[0] = Float.valueOf(gValues[0]);
+                AcceValues[1] = Float.valueOf(gValues[1]);
+                AcceValues[2] = Float.valueOf(gValues[2]);
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+
+        }
         return AcceValues;
     }
+
     public float[] getGPS()
     {
         try {
@@ -244,16 +200,5 @@ public class SensorReader
         }
         return GPSValues;
     }
-    public List<String> getCtl(String sensorName)
 
-    {
-        if (sensorName == "Gyro")
-            return GyroCtl;
-        else if (sensorName == "Baro")
-            return BaroCtl;
-        else if (sensorName == "Accel")
-            return AccelCtl;
-        else
-            return null;
-    }
 }

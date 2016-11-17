@@ -3,7 +3,10 @@ package edu.purdue.dcsl.crowdsensingclient;
 import java.util.Random;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.hardware.SensorManager;
+import android.os.BatteryManager;
 import android.telephony.TelephonyManager;
 import android.text.method.HideReturnsTransformationMethod;
 
@@ -34,13 +37,18 @@ public class ControlInfoReader
         Tmgr = (TelephonyManager) context.getSystemService(context.TELEPHONY_SERVICE);
     }
 
-    public float batteryP()
+    public float getBattery(Context context)
     {
-        float minX = 10.0f;
-        float maxX = 100.0f;
-        Random rand = new Random();
+        Intent batteryIntent = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        int level = batteryIntent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+        int scale = batteryIntent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
 
-        return rand.nextFloat() * (maxX - minX) + minX;
+        // Error checking that probably isn't needed but I added just in case.
+        if(level == -1 || scale == -1) {
+            return 50.0f;
+        }
+
+        return ((float)level / (float)scale) * 100.0f;
     }
     public String getImei()
     {

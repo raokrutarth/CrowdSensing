@@ -27,7 +27,7 @@ public class ControlLogger extends IntentService
         // this method will run every ~1hr and save
         // the needed control info in a log file
         ControlInfoReader cir = new ControlInfoReader(this);
-        float battery = cir.batteryP();
+        float battery = cir.getBattery(getApplicationContext());
         String filename = "controlLog.dat";
         String string = "" + battery + "\n";
         System.out.println("battery reading = " + string);
