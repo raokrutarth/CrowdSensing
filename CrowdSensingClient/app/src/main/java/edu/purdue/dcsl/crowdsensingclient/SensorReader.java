@@ -1,5 +1,6 @@
 package edu.purdue.dcsl.crowdsensingclient;
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -9,6 +10,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
@@ -133,7 +135,7 @@ public class SensorReader
         return AcceValues;
     }
 
-    public float[] getGPS()
+    public float[] getGPS(Activity Act)
     {
         try {
             locManager = (LocationManager) context.getSystemService(context.LOCATION_SERVICE);
@@ -155,6 +157,11 @@ public class SensorReader
                             && ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
                     {
                         locManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, minTime, minDistance, locListener);
+                    }
+                    else
+                    {
+                        ActivityCompat.requestPermissions(Act, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,
+                                Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET}, 10);
                     }
                     if(locManager != null)
                     {
@@ -191,7 +198,7 @@ public class SensorReader
         }
         catch (Exception e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());;
         }
         return GPSValues;
     }

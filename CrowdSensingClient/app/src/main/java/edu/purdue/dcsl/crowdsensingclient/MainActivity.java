@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity
         else if(sensorName.equals("Accl") )
             controlReadings = sr.getAccl();
         else if(sensorName.equals("GPS") )
-            controlReadings = sr.getGPS();
+            controlReadings = sr.getGPS(MainActivity.this);
         else
         {
             System.out.println("Unknown sensor requested");
