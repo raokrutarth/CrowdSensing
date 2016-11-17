@@ -15,6 +15,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Henry on 11/16/16.
@@ -83,7 +85,7 @@ public class AccelService extends Service implements SensorEventListener {
 
     public static void appendReading(String text)
     {
-        File logFile = new File(MainActivity.SDCARD, MainActivity.BARO_READING);
+        File logFile = new File(MainActivity.SDCARD, MainActivity.ACCEL_READING);
         if (!logFile.exists())
         {
             try
@@ -102,7 +104,9 @@ public class AccelService extends Service implements SensorEventListener {
             BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, false));
             buf.append(text);
             buf.newLine();
-            System.out.println("finished writing to " + logFile.getAbsolutePath() );
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-hh-mm-ss");
+            String res = sdf.format(new Date());
+            System.out.println("finished writing to [" + res+ "] " + logFile.getAbsolutePath() );
             buf.close();
         }
         catch (IOException e)

@@ -15,7 +15,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -103,8 +105,9 @@ public class BaroService extends Service implements SensorEventListener {
         {
             BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, false));
             buf.append(text);
-            buf.newLine();
-            System.out.println("finished writing to " + logFile.getAbsolutePath() );
+            buf.newLine();SimpleDateFormat sdf = new SimpleDateFormat("dd-hh-mm-ss");
+            String res = sdf.format(new Date());
+            System.out.println("finished writing to [" + res+ "] " + logFile.getAbsolutePath() );
             buf.close();
         }
         catch (IOException e)

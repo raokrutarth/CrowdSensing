@@ -77,10 +77,10 @@ public class MainActivity extends AppCompatActivity
         PendingIntent scheduleGyroIntent = PendingIntent.getService(getApplicationContext(), 0, intentGyro, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent scheduleBaroIntent = PendingIntent.getService(getApplicationContext(), 0, intentBaro, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent scheduleAccelIntent = PendingIntent.getService(getApplicationContext(), 0, intentAccel, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        myscheduler.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1, scheduleGyroIntent);
-        myscheduler.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1, scheduleBaroIntent);
-        myscheduler.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1, scheduleAccelIntent);
+        long interval = 120000;
+        myscheduler.setRepeating(AlarmManager.RTC_WAKEUP, 1, interval, scheduleGyroIntent);
+        myscheduler.setRepeating(AlarmManager.RTC_WAKEUP, 1, interval, scheduleBaroIntent);
+        myscheduler.setRepeating(AlarmManager.RTC_WAKEUP, 1, interval, scheduleAccelIntent);
 
         sr = new SensorReader( getApplicationContext() );
     }
@@ -194,13 +194,15 @@ public class MainActivity extends AppCompatActivity
 
             JSONObject controlJson = getControlJson();
             JSONArray sensorArr = new JSONArray();
-            for(int i = 0; i < 3; i++)
+            for(int i = 0; i < 4; i++)
             {
                 JSONObject sensorJson;
                 if(i == 2 )
                     sensorJson = getSensorJson("Gyro");
                 else if( i ==0)
                     sensorJson = getSensorJson("Baro");
+                else if(i==3)
+                    sensorJson = getSensorJson("GPS");
                 else
                     sensorJson = getSensorJson("Accl");
                 sensorArr.put(sensorJson);
@@ -311,7 +313,7 @@ public class MainActivity extends AppCompatActivity
         }
         try
         {
-            BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, false));
+            BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, true));
             buf.append(string);
             buf.newLine();
             System.out.println("finished writing to " + logFile.getAbsolutePath() );

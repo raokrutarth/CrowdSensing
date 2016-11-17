@@ -24,11 +24,7 @@ public class ControlLogger extends IntentService
     @Override
     protected void onHandleIntent(Intent intent)
     {
-        for(int i = 0; i < 3; i++)
-        {
-            logControl();
-        }
-
+        logControl();
     }
 
     /* This method will run every ~1hr and save
