@@ -16,27 +16,37 @@ import android.view.View;
 import android.widget.TextView;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity
 {
     public final static String Jmsg = "edu.purdue.dcsl.crowdsensingclient.JSON_RESULT";
     public final static String CONTROL_LOG = "edu.purdue.dcsl.crowdsensingclient.ControllogFile";
+    public final static String GRYO_READING = "edu.purdue.dcsl.crowdsensingclient.GyroReadingFile";
+    public final static String BARO_READING = "edu.purdue.dcsl.crowdsensingclient.BaroReadingFile";
+    public final static String ACCEL_READING = "edu.purdue.dcsl.crowdsensingclient.AccelReadingFile";
+    public final static String SENSOR_CONTROL = "edu.purdue.dcsl.crowdsensingclient.SensorControlFile";
     public static File SDCARD = Environment.getExternalStorageDirectory();
-    private static String task_json;
+    //private Intent gyroIntent;
+    // private PendingIntent alarmIntentGyro;
+
     private static final String CS_SERVER = "35.160.36.179";
     private static final int SERVER_PORT = 21567;
     private SensorReader sr;
+    private static String task_json ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -56,14 +66,31 @@ public class MainActivity extends AppCompatActivity
         alarmMgr.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
                 AlarmManager.INTERVAL_FIFTEEN_MINUTES,
                 AlarmManager.INTERVAL_FIFTEEN_MINUTES,
+
                 alarmIntent);
+        Calendar calendar = Calendar.getInstance();
+        AlarmManager myscheduler = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intentGyro = new Intent(getApplicationContext(), GyroService.class);
+        Intent intentBaro = new Intent(getApplicationContext(), BaroService.class);
+        Intent intentAccel = new Intent(getApplicationContext(), AccelService.class);
+
+        PendingIntent scheduleGyroIntent = PendingIntent.getService(getApplicationContext(), 0, intentGyro, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent scheduleBaroIntent = PendingIntent.getService(getApplicationContext(), 0, intentBaro, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent scheduleAccelIntent = PendingIntent.getService(getApplicationContext(), 0, intentAccel, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        myscheduler.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1, scheduleGyroIntent);
+        myscheduler.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1, scheduleBaroIntent);
+        myscheduler.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1, scheduleAccelIntent);
+
         sr = new SensorReader( getApplicationContext() );
     }
 
-    private boolean processTask(String tskJson)
+    private boolean processTask(String tskJson) throws JSONException
     {
         System.out.println("Task JSON received: ");
         System.out.println(tskJson);
+        JSONObject task_j = new JSONObject(tskJson);
+
 
         // call the relevant sensors here
 
@@ -145,10 +172,6 @@ public class MainActivity extends AppCompatActivity
                             System.out.println("Extra control readings detected");
                     }
                     controlJson.put("Entry" + entry_n++, controlEntry);
-                    // Clear the Control log file
-                    File f = new File(SDCARD, CONTROL_LOG);
-                    if(f.exists())
-                        f.delete();
                 }
             }
             return controlJson;
@@ -171,13 +194,15 @@ public class MainActivity extends AppCompatActivity
 
             JSONObject controlJson = getControlJson();
             JSONArray sensorArr = new JSONArray();
-            for(int i = 10; i > 0; i--)
+            for(int i = 0; i < 3; i++)
             {
                 JSONObject sensorJson;
-                if(i%2 == 0)
+                if(i == 2 )
                     sensorJson = getSensorJson("Gyro");
-                else
+                else if( i ==0)
                     sensorJson = getSensorJson("Baro");
+                else
+                    sensorJson = getSensorJson("Accl");
                 sensorArr.put(sensorJson);
             }
             JSONObject finalRes = new JSONObject();
@@ -216,6 +241,10 @@ public class MainActivity extends AppCompatActivity
 
                     is.close();
                     socket.close();
+                    // Clear the Control log file
+                    File f = new File(SDCARD, CONTROL_LOG);
+                    if(f.exists())
+                        f.delete();
                 }
                 catch (Exception e)
                 {
@@ -240,7 +269,7 @@ public class MainActivity extends AppCompatActivity
         // Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
-        while(permission != PackageManager.PERMISSION_GRANTED) {
+        if(permission != PackageManager.PERMISSION_GRANTED) {
             // We don't have permission so prompt the user
             ActivityCompat.requestPermissions(
                     activity,
@@ -264,4 +293,47 @@ public class MainActivity extends AppCompatActivity
         if(permission == PackageManager.PERMISSION_GRANTED)
             System.out.println("PHONE state permission granted");
     }
+    public static synchronized void append(String string)
+    {
+        File logFile = new File(MainActivity.SDCARD, MainActivity.SENSOR_CONTROL);
+        if (!logFile.exists())
+        {
+            try
+            {
+                logFile.createNewFile();
+            }
+            catch (IOException e)
+            {
+                System.out.println("[+] SD card state valid: " + checkSdCard() );
+                System.out.println("[-] Unable to create new Sensor control file");
+                e.printStackTrace();
+            }
+        }
+        try
+        {
+            BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, false));
+            buf.append(string);
+            buf.newLine();
+            System.out.println("finished writing to " + logFile.getAbsolutePath() );
+            buf.close();
+        }
+        catch (IOException e)
+        {
+            System.out.println("[-] Unable to write to log file");
+            e.printStackTrace();
+        }
+
+    }
+
+    private static boolean checkSdCard()
+    {
+        /* Checks if external storage is available for read and write */
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state))
+        {
+            return true;
+        }
+        return false;
+    }
+
 }

@@ -18,6 +18,17 @@
 
         <service  android:name="edu.purdue.dcsl.crowdsensingclient.ControlLogger"
             android:exported="false"   />
+        <service
+            android:name=".ControlLogger"
+            android:exported="false"></service>
+                <service android:name=".GyroService"
+                    android:exported="false"></service>
+
+            <service android:name=".AccelService"
+                android:exported="false"></service>
+
+            <service android:name=".BaroService"
+                android:exported="false"></service>
 
         <activity android:name=".MainActivity">
             <intent-filter>

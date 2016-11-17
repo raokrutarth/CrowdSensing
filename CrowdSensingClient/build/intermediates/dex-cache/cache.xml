@@ -3,15 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_ea0838396d26af5b3ac166144f306b0e5527776e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
@@ -25,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="cc7863bcad6591db625cbb2816d2dda519c1202d">
+        sha1="a54ab60b38f70b60afda62e36ef42073849e5fd2">
         <dex dex="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_3b5582cad0e6182768b969c4f2c7aead4e198132/classes.dex" />
     </item>
     <item
@@ -39,21 +30,57 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="40c2fd81696adeb799e8f60aa7d9ea27eddc084b">
-        <dex dex="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_7fe906eedfbf86c1063f577df21bc7004aaeee26/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
         <dex dex="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_1e3375c2bb8f7d6bbe8c935fdd7f66482abf9bef/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="135517ef44db6e87197d58d36d22d2bc4660d46f">
+        <dex dex="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_7fe906eedfbf86c1063f577df21bc7004aaeee26/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_a48459a923c98988048715ea7a0e5b8636d3fc8a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_e879c3c4743231ddb18b48f7c240e70a472c65e5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_fa3169f647fb02be59fa39d3339baf0243c3e6f6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_ea0838396d26af5b3ac166144f306b0e5527776e/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -102,15 +129,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_a48459a923c98988048715ea7a0e5b8636d3fc8a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
@@ -129,30 +147,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_e879c3c4743231ddb18b48f7c240e70a472c65e5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
         <dex dex="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_f34eda8607f8f9933c823c388ba786294ffa9174/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/home/raok/CrowdSensingClient/CrowdSensingClient/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_fa3169f647fb02be59fa39d3339baf0243c3e6f6/classes.dex" />
     </item>
 
 </items>
