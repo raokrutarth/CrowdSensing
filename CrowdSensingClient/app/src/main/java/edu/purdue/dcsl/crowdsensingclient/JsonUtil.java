@@ -16,26 +16,26 @@ public class JsonUtil
         try
         {
             JSONObject jsonObj = new JSONObject();
-            jsonObj.put("Sensor", reading.getRname());
+            // jsonObj.put("Sensor", reading.getRname());
             float[] axisRs = reading.getaxisReadings();
             double r1 = reading.getR1();
 
-            if(r1 != 0)
+            if(r1 > 0 || r1 < 0)
                 jsonObj.put("R1", Double.toString(r1) );
-
             if(axisRs != null)
             {
                 JSONArray jArr = new JSONArray();
                 for(int i = 0; i < 3; i++)
                 {
-                    JSONObject pnObj = new JSONObject();
-                    pnObj.put("" + (char)('x'+i) , axisRs[i] );
-                    jArr.put(pnObj);
+                    if(axisRs[i] > 0 || axisRs[i] < 0)
+                    {
+                        jArr.put(axisRs[i]);
+                    }
                 }
-                jsonObj.put("Axis-Reading", jArr);
+                jsonObj.put(reading.getRname(), jArr);
             }
             
-            ArrayList<String> md = (ArrayList<String>)reading.getMetaData();
+            /*ArrayList<String> md = (ArrayList<String>)reading.getMetaData();
             if(md != null)
             {
                 JSONArray jsonArr = new JSONArray();
@@ -47,7 +47,7 @@ public class JsonUtil
                     jsonArr.put(pnObj);
                 }
                 jsonObj.put("MetaData", jsonArr);
-            }
+            }*/
             return jsonObj;
         }
         catch(Exception ex)

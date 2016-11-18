@@ -72,12 +72,11 @@ public class AccelService extends Service implements SensorEventListener {
             SensorEvent event = events[0];
             Log.d("MY_APP", event.toString());
 
-            Sensor sens = event.sensor;
-            Long tsLong = System.currentTimeMillis()/1000;
-            String ts = tsLong.toString();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-hh-mm-ss");
+            String ts = sdf.format(new Date());
             String readings = "" + event.values[0] + "_" + event.values[1] + "_" + event.values[2] + "_" +ts;
             appendReading(readings);
-            MainActivity.append("Accel, " + ts);
+            MainActivity.append("Accel " + ts);
             accel = true;
             return null;
         }

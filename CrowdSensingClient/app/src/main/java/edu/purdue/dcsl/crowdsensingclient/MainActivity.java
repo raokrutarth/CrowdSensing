@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity
     //private Intent gyroIntent;
     // private PendingIntent alarmIntentGyro;
 
-    private static final String CS_SERVER = "35.160.36.179";
+    private static final String CS_SERVER = "128.46.208.244";
     private static final int SERVER_PORT = 21567;
     private SensorReader sr;
     private static String task_json ;
@@ -90,9 +90,48 @@ public class MainActivity extends AppCompatActivity
         System.out.println("Task JSON received: ");
         System.out.println(tskJson);
         JSONObject task_j = new JSONObject(tskJson);
+        JSONArray arr = task_j.getJSONArray("Tasks");
+        for(int i = 0; i < arr.length(); i++)
+        {
+            JSONObject newtask = arr.getJSONObject(i);
+            String sensor = newtask.getString("sensor_name");
+            String deadline = newtask.getString("DDL");
+            System.out.println("Task received: " + sensor + " " + deadline);
+            // parse deadline to system time
+        }
+    /*
+        JSONObject obj = new JSONObject(" .... ");
+        String pageName = obj.getJSONObject("pageInfo").getString("pageName");
 
+        JSONArray arr = obj.getJSONArray("posts");
+        for (int i = 0; i < arr.length(); i++)
+        {
+            String post_id = arr.getJSONObject(i).getString("post_id");
+            ......
+        }
+        // server send format
+        {
+            "Tasks":[
+             {
+                "sensor_name": "Baro",
+                "DDL": "2016-06-07/8:30"
+             },
+             {
+                "sensor_name": "Acce",
+                "DDL": "2016-06-07/8:30"
+             },
+             {
+                "sensor_name": "GPS",
+                "DDL": "2016-06-07/8:30"
+             },
+             {
+                "sensor_name": "Gyro",
+                "DDL": "2016-06-07/8:30"
+             }
+            ]
+        }
 
-        // call the relevant sensors here
+    */
 
         return true;
     }
@@ -159,19 +198,20 @@ public class MainActivity extends AppCompatActivity
                         switch(i)
                         {
                             case 0:
-                                controlEntry.put("Battery", controlReadings[i]);
+                                controlJson.put("Battery", controlReadings[i]);
                                 break;
                             case 1:
-                                controlEntry.put("IMIE", controlReadings[i]);
+                                controlJson.put("IMEI", controlReadings[i]);
                                 break;
                             case 2:
-                                controlEntry.put("SignalStrength", controlReadings[i]);
+                                controlJson.put("SignalStrength", controlReadings[i]);
                                 break;
                         }
                         if(i > 2)
                             System.out.println("Extra control readings detected");
                     }
-                    controlJson.put("Entry" + entry_n++, controlEntry);
+                    // controlJson.put("Entry", controlEntry);
+                    break;
                 }
             }
             return controlJson;
@@ -208,7 +248,7 @@ public class MainActivity extends AppCompatActivity
                 sensorArr.put(sensorJson);
             }
             JSONObject finalRes = new JSONObject();
-            finalRes.put("Sensors", sensorArr );
+            finalRes.put("Readings", sensorArr );
             finalRes.put("Control", controlJson);
             tv.append( finalRes.toString() );
 

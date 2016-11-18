@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class DisplayMessageActivity extends AppCompatActivity {
-    /// this activity was never used
+    /// this activity is not yet useed
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

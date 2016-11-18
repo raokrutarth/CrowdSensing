@@ -18,6 +18,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by raok on 11/11/16.
  */
@@ -194,6 +197,9 @@ public class SensorReader
                         }
                     }
                 }
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-hh-mm-ss");
+                String ts = sdf.format(new Date());
+                MainActivity.append("GPS " + ts);
             }
         }
         catch (Exception e)

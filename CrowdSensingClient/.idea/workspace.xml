@@ -33,8 +33,14 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_fragment_24_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_fragment_24_2_1.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_media_compat_24_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_media_compat_24_2_1.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_24_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_24_2_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/AccelService.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/AccelService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/BaroService.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/BaroService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/DisplayMessageActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/DisplayMessageActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/GyroService.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/GyroService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/JsonUtil.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/JsonUtil.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/SensorReader.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/SensorReader.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
@@ -64,11 +70,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
-              <caret line="115" column="12" selection-start-line="115" selection-start-column="12" selection-end-line="115" selection-end-column="12" />
+            <state relative-caret-position="507">
+              <caret line="133" column="6" selection-start-line="133" selection-start-column="6" selection-end-line="133" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,28 +82,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider editor-type-id="android-manifest">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AccelService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/AccelService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1620">
-              <caret line="108" column="76" selection-start-line="108" selection-start-column="69" selection-end-line="108" selection-end-column="76" />
+            <state relative-caret-position="-88">
+              <caret line="78" column="38" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1002#1003#0" expanded="true" />
-                <element signature="e#1034#1035#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,22 +97,30 @@
       <file leaf-file-name="BaroService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/BaroService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
+            <state relative-caret-position="366">
+              <caret line="80" column="38" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1049#1050#0" expanded="true" />
-                <element signature="e#1081#1082#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SensorReader.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DisplayMessageActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/DisplayMessageActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SensorReader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/SensorReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="202" column="0" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
+            <state relative-caret-position="290">
+              <caret line="201" column="41" selection-start-line="201" selection-start-column="41" selection-end-line="201" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -132,30 +131,12 @@
       <file leaf-file-name="ControlLogger.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/ControlLogger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+            <state relative-caret-position="196">
+              <caret line="40" column="30" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#684#685#0" expanded="true" />
                 <element signature="e#712#713#0" expanded="true" />
-                <element signature="e#2652#2653#0" expanded="true" />
-                <element signature="e#2690#2691#0" expanded="true" />
-                <element signature="e#2739#2740#0" expanded="true" />
-                <element signature="e#2771#2772#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GyroService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/GyroService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1665">
-              <caret line="111" column="55" selection-start-line="111" selection-start-column="55" selection-end-line="111" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1083#1084#0" expanded="true" />
-                <element signature="e#1115#1116#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -164,8 +145,20 @@
       <file leaf-file-name="JsonUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/JsonUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+            <state relative-caret-position="394">
+              <caret line="43" column="14" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GyroService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/GyroService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="81" column="38" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -176,7 +169,7 @@
       <file leaf-file-name="ControlInfoReader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/ControlInfoReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
+            <state relative-caret-position="88">
               <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -188,7 +181,7 @@
       <file leaf-file-name="Reading.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/Reading.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
+            <state relative-caret-position="792">
               <caret line="51" column="12" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
               <folding />
             </state>
@@ -1607,7 +1600,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4438044490000" />
+        <entry key="$PROJECT_DIR$" value="4437223994162" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1792,71 +1785,71 @@
               <option name="name" value="app" />
               <option name="projectBuildClasspath">
                 <list>
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/ant-1.9.6.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/ant-launcher-1.9.6.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-base-services-2.14.1.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-base-services-groovy-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-cli-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-core-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-docs-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-installation-beacon-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-jvm-services-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-launcher-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-logging-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-ui-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-open-api-2.14.1.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-messaging-2.14.1.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-model-core-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-model-groovy-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-native-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-open-api-2.14.1.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-process-services-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-resources-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-tooling-api-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-ui-2.14.1.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-wrapper-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-cli-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-model-groovy-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-core-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-resources-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-installation-beacon-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-tooling-api-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-logging-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-native-2.14.1.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/groovy-all-2.4.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-announce-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-antlr-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-build-comparison-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-build-init-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-code-quality-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-dependency-management-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-diagnostics-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-ear-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-ide-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-ide-native-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-jvm-services-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-docs-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/ant-1.9.6.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/gradle-launcher-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-signing-2.14.1.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-ide-play-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-ivy-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-jacoco-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-javascript-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-jetty-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-language-groovy-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-language-java-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-language-jvm-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-language-native-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-language-scala-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-maven-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-osgi-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-platform-base-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-platform-jvm-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-platform-native-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-platform-play-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-plugin-development-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-diagnostics-2.14.1.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-plugin-use-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-plugins-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-publish-2.14.1.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-reporting-2.14.1.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-resources-http-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-resources-s3-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-resources-sftp-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-scala-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-signing-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-plugins-2.14.1.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-sonar-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-test-kit-2.14.1.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-testing-base-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-language-jvm-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-platform-base-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-language-groovy-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-publish-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-platform-native-2.14.1.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-testing-jvm-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-osgi-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-language-scala-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-platform-play-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-code-quality-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-language-java-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-language-native-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-test-kit-2.14.1.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-testing-native-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-plugin-development-2.14.1.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-tooling-api-builders-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-announce-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-ivy-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-javascript-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-build-comparison-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-scala-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-jetty-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-jacoco-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-platform-jvm-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-resources-sftp-2.14.1.jar" />
                   <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/ivy-2.2.0.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-ide-native-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-testing-base-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-antlr-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-maven-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-ide-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-resources-s3-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-ear-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-dependency-management-2.14.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1/lib/plugins/gradle-build-init-2.14.1.jar" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/java" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/groovy" />
                 </list>
@@ -1876,22 +1869,24 @@
         <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/MyIntentService.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/GyroReader.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/DisplayMessageActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/JsonUtil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/ControlInfoReader.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/ControlLogger.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/BaroService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/GyroService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/AccelService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/DisplayMessageActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/SensorReader.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/GyroService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/BaroService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/AccelService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/JsonUtil.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/MainActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1215" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1918,6 +1913,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1968,34 +1966,17 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CrowdSensingClient" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="device.picker.selection" value="8XV5T16219002827" />
+    <property name="device.picker.selection" value="4100ecab45f99117" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPropertiesWindowManager-NlEditorPanel.WIDTH" value="204" />
     <property name="FullScreen" value="true" />
@@ -2386,7 +2367,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="65" y="24" width="1215" height="1000" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2398,21 +2379,21 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34474885" sideWeight="0.20615911" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23021002" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24294269" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28995433" sideWeight="0.7938409" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41076487" sideWeight="0.7938409" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2456,6 +2437,104 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2070">
+          <caret line="115" column="12" selection-start-line="115" selection-start-column="12" selection-end-line="115" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/AccelService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1944">
+          <caret line="108" column="76" selection-start-line="108" selection-start-column="69" selection-end-line="108" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/BaroService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/SensorReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/ControlLogger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/GyroService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1998">
+          <caret line="111" column="55" selection-start-line="111" selection-start-column="55" selection-end-line="111" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/JsonUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/ControlInfoReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/Reading.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="51" column="12" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
@@ -2478,8 +2557,6 @@
           <caret line="108" column="76" selection-start-line="108" selection-start-column="69" selection-end-line="108" selection-end-column="76" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1002#1003#0" expanded="true" />
-            <element signature="e#1034#1035#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2490,8 +2567,6 @@
           <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1049#1050#0" expanded="true" />
-            <element signature="e#1081#1082#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2514,10 +2589,6 @@
             <element signature="imports" expanded="true" />
             <element signature="e#684#685#0" expanded="true" />
             <element signature="e#712#713#0" expanded="true" />
-            <element signature="e#2652#2653#0" expanded="true" />
-            <element signature="e#2690#2691#0" expanded="true" />
-            <element signature="e#2739#2740#0" expanded="true" />
-            <element signature="e#2771#2772#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2528,8 +2599,6 @@
           <caret line="111" column="55" selection-start-line="111" selection-start-column="55" selection-end-line="111" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1083#1084#0" expanded="true" />
-            <element signature="e#1115#1116#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2564,6 +2633,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/MyIntentService.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
@@ -2574,9 +2646,6 @@
             <element signature="e#486#519#0" expanded="false" />
           </folding>
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/GyroReader.java" />
@@ -2601,29 +2670,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/DisplayMessageActivity.java">
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-24/android/hardware/SensorEventListener.java" />
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-24/android/app/IntentService.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+        <state relative-caret-position="378">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/Reading.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="51" column="12" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/JsonUtil.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/DisplayMessageActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        <state relative-caret-position="90">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/SensorReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="201" column="41" selection-start-line="201" selection-start-column="41" selection-end-line="201" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-24/android/hardware/SensorEventListener.java" />
-    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-24/android/app/IntentService.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/GyroService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="81" column="38" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/BaroService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="80" column="38" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/AccelService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-88">
+          <caret line="78" column="38" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/ControlLogger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="40" column="30" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/ControlInfoReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
+        <state relative-caret-position="88">
           <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -2631,91 +2761,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/JsonUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/ControlLogger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+        <state relative-caret-position="394">
+          <caret line="43" column="14" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#684#685#0" expanded="true" />
-            <element signature="e#712#713#0" expanded="true" />
-            <element signature="e#2652#2653#0" expanded="true" />
-            <element signature="e#2690#2691#0" expanded="true" />
-            <element signature="e#2739#2740#0" expanded="true" />
-            <element signature="e#2771#2772#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/GyroService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1665">
-          <caret line="111" column="55" selection-start-line="111" selection-start-column="55" selection-end-line="111" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1083#1084#0" expanded="true" />
-            <element signature="e#1115#1116#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/AccelService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="108" column="76" selection-start-line="108" selection-start-column="69" selection-end-line="108" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1002#1003#0" expanded="true" />
-            <element signature="e#1034#1035#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/BaroService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1049#1050#0" expanded="true" />
-            <element signature="e#1081#1082#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/Reading.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="51" column="12" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="115" column="12" selection-start-line="115" selection-start-column="12" selection-end-line="115" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/purdue/dcsl/crowdsensingclient/SensorReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="202" column="0" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
+        <state relative-caret-position="507">
+          <caret line="133" column="6" selection-start-line="133" selection-start-column="6" selection-end-line="133" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
