@@ -12,6 +12,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity
 
         PendingIntent alarmIntent = PendingIntent.getBroadcast(getBaseContext(), 0, controlLoggerIntent, 0);
         AlarmManager alarmMgr = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        alarmMgr.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+        alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP,
                 AlarmManager.INTERVAL_FIFTEEN_MINUTES,
                 AlarmManager.INTERVAL_FIFTEEN_MINUTES,
                 alarmIntent);
@@ -93,7 +94,8 @@ public class MainActivity extends AppCompatActivity
                 try {
                     while(true){
                         SyncServer1();
-                        Thread.sleep(30*60*1000);
+                        Thread.sleep(10000);
+                        Log.i("Scheduling", "In syncServer1");
                     }
                 }
                 catch (Exception e){
@@ -204,16 +206,21 @@ public class MainActivity extends AppCompatActivity
                 System.out.println("File exists? " + file.exists() );
                 System.out.println("Unable to read file in getControlJson()");
             }
-
-            for(String entry : logArr)
+            if (logArr.size() > 0)
             {
+                String entry = logArr.get(logArr.size()-1);
+            //for(String entry : logArr)
+            //{
                 JSONObject controlEntry = new JSONObject();
-                if(entry != null)
-                {
+                if(entry != null) {
                     System.out.println("entry: " + entry);
                     String[] controlReadings = entry.split(",");
                     System.out.println("# of control readings: " + controlReadings.length);
-                    for(int i = 0; i < controlReadings.length; ++i )
+                    controlJson.put("Battery", controlReadings[0]);
+                    controlJson.put("IMEI", controlReadings[1]);
+                    controlJson.put("SignalStrength", controlReadings[2]);
+
+                    /*for(int i = 0; i < controlReadings.length; i++ )
                     {
                         switch(i)
                         {
@@ -231,17 +238,27 @@ public class MainActivity extends AppCompatActivity
                             System.out.println("Extra control readings detected");
                     }
                     // controlJson.put("Entry", controlEntry);
-                    break;
+                    */
+                    //break;
+
+                    //}
                 }
             }
-            return controlJson;
+            else
+            {
+                controlJson.put("Battery", "");
+                controlJson.put("IMEI", "");
+                controlJson.put("SignalStrength", "");
+            }
+
         }
         catch (Exception e)
         {
             System.out.println("Reading from log file failed");
             System.out.println(e.getMessage() );
-            return null;
+
         }
+        return controlJson;
     }
     public void SyncServer(View view)
     {
@@ -283,6 +300,59 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    public JSONObject getEmptySensorJson(String sensorName)
+    {
+        float[] controlReadings;
+        /*public float[3] getGyro()
+          public float[1] getBaro()
+          public float[3] getAccl()
+          public float[2] getGPS()*/
+
+        if( sensorName.equals("Gyro") )
+            controlReadings = new float[3];
+        else if(sensorName.equals("Baro") )
+            controlReadings = new float[3];
+        else if(sensorName.equals("Accl") )
+            controlReadings = new float[3];
+        else if(sensorName.equals("GPS") )
+            controlReadings = new float[3];
+        else
+        {
+            System.out.println("Unknown sensor requested");
+            controlReadings = new float[0];
+        }
+        Reading rd = new Reading();
+        rd.setRname(sensorName);
+        rd.setAxisReading(controlReadings);
+        return JsonUtil.toJson(rd);
+    }
+    public void createEmptyReading()
+    {
+        try
+        {
+            JSONArray sensorArr = new JSONArray();
+            for(int i = 0; i < 4; i++)
+            {
+                JSONObject sensorJson;
+                if(i == 2 )
+                    sensorJson = getEmptySensorJson("Gyro");
+                else if( i ==0)
+                    sensorJson = getEmptySensorJson("Baro");
+                else if(i==3)
+                    sensorJson = getEmptySensorJson("GPS");
+                else
+                    sensorJson = getEmptySensorJson("Accl");
+                sensorArr.put(sensorJson);
+            }
+            JSONObject firstReading = new JSONObject();
+            firstReading.put("Readings", sensorArr);
+            reading_result = firstReading.toString();
+        }
+        catch (JSONException e)
+        {
+            System.out.println("Json exception in initReading() ");
+        }
+    }
     public void SyncServer1()
     {
 
@@ -292,7 +362,8 @@ public class MainActivity extends AppCompatActivity
             System.out.println("in sync 1");
             JSONObject controlJson = getControlJson();
             JSONObject finalRes;
-            if(reading_result.length() < 10)
+
+            /*if(reading_result.length() < 10)
             {
                 initReadingJson();
                 finalRes = new JSONObject(reading_result);
@@ -300,12 +371,23 @@ public class MainActivity extends AppCompatActivity
             else
             {
                 finalRes = new JSONObject();
+                if ("".equals(reading_result)){
+                    createEmptyReading();
+                }
                 finalRes.put("Readings", new JSONArray(reading_result) );
+
+            }*/
+            finalRes = new JSONObject();
+            if ("".equals(reading_result) || "{}".equals(reading_result))
+            {
+                createEmptyReading();
+                finalRes = new JSONObject(reading_result);
             }
             finalRes.put("Control", controlJson);
 
 
             serverExchange(CS_SERVER, SERVER_PORT, finalRes.toString() );
+
         }
         catch(JSONException e)
         {
