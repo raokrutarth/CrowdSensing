@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity
     private static final int SERVER_PORT = 21567;
     private SensorReader sr;
     private static String task_json ;
+    private static String reading_result = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -116,8 +117,9 @@ public class MainActivity extends AppCompatActivity
                 {
                     readingJson.put(sensor, getSensorJson(sensor));
                 }
-                return readingJson;
             }
+            reading_result = readingJson.toString();
+            return readingJson;
         }
         catch(JSONException e)
         {
@@ -129,8 +131,12 @@ public class MainActivity extends AppCompatActivity
             System.out.println("Unable to parse date");
             return null;
         }
+        catch( Exception e)
+        {
+            System.out.println( e.getMessage() ) ;
+            return null;
+        }
         finally {
-            System.out.println("Unknown exception in process_task()");
             return null;
         }
     }
@@ -232,26 +238,26 @@ public class MainActivity extends AppCompatActivity
             tv.append("\n");
 
             JSONObject controlJson = getControlJson();
-//            JSONArray sensorArr = new JSONArray();
-//            for(int i = 0; i < 4; i++)
-//            {
-//                JSONObject sensorJson;
-//                if(i == 2 )
-//                    sensorJson = getSensorJson("Gyro");
-//                else if( i ==0)
-//                    sensorJson = getSensorJson("Baro");
-//                else if(i==3)
-//                    sensorJson = getSensorJson("GPS");
-//                else
-//                    sensorJson = getSensorJson("Accl");
-//                sensorArr.put(sensorJson);
-//            }
-            JSONObject finalRes = new JSONObject();
-            finalRes.put("Readings", processTask() );
+            JSONObject finalRes;
+            if(reading_result.length() < 10)
+            {
+                initReadingJson();
+                finalRes = new JSONObject(reading_result);
+            }
+            else
+            {
+                finalRes = new JSONObject();
+                finalRes.put("Readings", new JSONArray(reading_result) );
+            }
             finalRes.put("Control", controlJson);
             tv.append( finalRes.toString() );
 
             serverExchange(CS_SERVER, SERVER_PORT, finalRes.toString() );
+        }
+        catch(JSONException e)
+        {
+            System.out.println("reading_result: " + reading_result);
+            System.out.println("[-] Unable to parse taskJson in syncServer() ");
         }
         catch (Exception ex)
         {
@@ -260,6 +266,36 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
+
+    private void initReadingJson()
+    {
+        try
+        {
+            JSONArray sensorArr = new JSONArray();
+            for(int i = 0; i < 4; i++)
+            {
+                JSONObject sensorJson;
+                if(i == 2 )
+                    sensorJson = getSensorJson("Gyro");
+                else if( i ==0)
+                    sensorJson = getSensorJson("Baro");
+                else if(i==3)
+                    sensorJson = getSensorJson("GPS");
+                else
+                    sensorJson = getSensorJson("Accl");
+                sensorArr.put(sensorJson);
+            }
+            JSONObject firstReading = new JSONObject();
+            firstReading.put("Readings", sensorArr);
+            reading_result = firstReading.toString();
+        }
+        catch (JSONException e)
+        {
+            System.out.println("Json exception in initReading() ");
+        }
+
+    }
+
     private void serverExchange(final String host, final int port, final String data) {
         Thread thread = new Thread()
         {
