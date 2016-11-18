@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1-3fedd8dd63220027ea04b6da395fefb9c2cd8636.jar" />
+    </item>
+    <item
+        jar="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/pre-dexed/debug/classes-291f093e2c1680ee52bdc5d9adeb3c1ee0cfdcca.jar" />
+    </item>
+    <item
+        jar="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1-87d3afa043ce61ab239607606b6081fcaa6da9a9.jar" />
+    </item>
+    <item
+        jar="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/pre-dexed/debug/classes-aa59c98e1eaf2ea63406557ac2dff33e5e109a81.jar" />
+    </item>
+    <item
+        jar="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/pre-dexed/debug/classes-ce980fcca2fdf0b3007acb89ebb7c9364e5420bb.jar" />
+    </item>
+    <item
+        jar="/Users/Henry/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1-2fa9c0ae829a5700e7b2219492e937519493ee1f.jar" />
+    </item>
+    <item
+        jar="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/pre-dexed/debug/classes-4b42ef39dd1c1d472bc1703ce28029607d9e8e92.jar" />
+    </item>
+    <item
+        jar="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1-73c0602330d3b0f40be297c09f4db3379e6c517c.jar" />
+    </item>
+    <item
+        jar="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/pre-dexed/debug/classes-4368c3a7b14bd6c0377765c5e2ae770fc8879c92.jar" />
+    </item>
+    <item
+        jar="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1-3e7130e944105143f5e7383cea2e6642ff3f0827.jar" />
+    </item>
+    <item
+        jar="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1-47c387fdb61a960a99a11867b2817d8c9f07ffc9.jar" />
+    </item>
+    <item
+        jar="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/pre-dexed/debug/classes-2916c3aaf0076bb2c1e96acb0aea04e594955e0d.jar" />
+    </item>
+    <item
+        jar="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/pre-dexed/debug/classes-9acdfc3c679e53868a28e469e0456b19e71b6ed9.jar" />
+    </item>
+    <item
+        jar="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/pre-dexed/debug/classes-78592281489886941e56e53eebd524509888d6db.jar" />
+    </item>
+    <item
+        jar="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/Henry/Purdue/dcsl/tools/app_develop/reference_apps/RRCpacketSniffer-master/app/build/intermediates/pre-dexed/debug/classes-b76f2a48dd1714094bb5db7fbed318c406e92406.jar" />
+    </item>
+
+</items>
