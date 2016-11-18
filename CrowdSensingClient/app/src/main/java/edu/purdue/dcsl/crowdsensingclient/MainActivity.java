@@ -28,8 +28,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -85,55 +88,51 @@ public class MainActivity extends AppCompatActivity
         sr = new SensorReader( getApplicationContext() );
     }
 
-    private boolean processTask(String tskJson) throws JSONException
-    {
-        System.out.println("Task JSON received: ");
-        System.out.println(tskJson);
-        JSONObject task_j = new JSONObject(tskJson);
-        JSONArray arr = task_j.getJSONArray("Tasks");
-        for(int i = 0; i < arr.length(); i++)
+    private JSONObject processTask(String tskJson) {
+        try
         {
-            JSONObject newtask = arr.getJSONObject(i);
-            String sensor = newtask.getString("sensor_name");
-            String deadline = newtask.getString("DDL");
-            System.out.println("Task received: " + sensor + " " + deadline);
-            // parse deadline to system time
-        }
-    /*
-        JSONObject obj = new JSONObject(" .... ");
-        String pageName = obj.getJSONObject("pageInfo").getString("pageName");
+            System.out.println("Task JSON received: ");
+            System.out.println(tskJson);
+            JSONObject task_j = new JSONObject(tskJson);
+            JSONArray arr = task_j.getJSONArray("Tasks");
 
-        JSONArray arr = obj.getJSONArray("posts");
-        for (int i = 0; i < arr.length(); i++)
+            JSONObject readingJson = new JSONObject();
+
+
+            for (int i = 0; i < arr.length(); i++)
+            {
+                JSONObject newtask = arr.getJSONObject(i);
+                String sensor = newtask.getString("sensor_name");
+                String deadline = newtask.getString("DDL");
+                System.out.println("Task received: " + sensor + " " + deadline);
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm");
+                String dateInString = deadline;
+                Date task_deadline = sdf.parse(dateInString);
+                System.out.println("Parsed date: " + task_deadline);
+                Date thresh = new Date();
+                thresh.setTime(thresh.getTime() + 15*60000 ); // 15 mins
+                Date now = new Date();
+                if (now.before(task_deadline) && task_deadline.after(thresh) )
+                {
+                    readingJson.put(sensor, getSensorJson(sensor));
+                }
+                return readingJson;
+            }
+        }
+        catch(JSONException e)
         {
-            String post_id = arr.getJSONObject(i).getString("post_id");
-            ......
+            System.out.println("[-] Unable to parse taskJson in processTask() ");
+            return null;
         }
-        // server send format
+        catch(ParseException ex)
         {
-            "Tasks":[
-             {
-                "sensor_name": "Baro",
-                "DDL": "2016-06-07/8:30"
-             },
-             {
-                "sensor_name": "Acce",
-                "DDL": "2016-06-07/8:30"
-             },
-             {
-                "sensor_name": "GPS",
-                "DDL": "2016-06-07/8:30"
-             },
-             {
-                "sensor_name": "Gyro",
-                "DDL": "2016-06-07/8:30"
-             }
-            ]
+            System.out.println("Unable to parse date");
+            return null;
         }
-
-    */
-
-        return true;
+        finally {
+            System.out.println("Unknown exception in process_task()");
+            return null;
+        }
     }
 
     public JSONObject getSensorJson(String sensorName)
@@ -233,22 +232,22 @@ public class MainActivity extends AppCompatActivity
             tv.append("\n");
 
             JSONObject controlJson = getControlJson();
-            JSONArray sensorArr = new JSONArray();
-            for(int i = 0; i < 4; i++)
-            {
-                JSONObject sensorJson;
-                if(i == 2 )
-                    sensorJson = getSensorJson("Gyro");
-                else if( i ==0)
-                    sensorJson = getSensorJson("Baro");
-                else if(i==3)
-                    sensorJson = getSensorJson("GPS");
-                else
-                    sensorJson = getSensorJson("Accl");
-                sensorArr.put(sensorJson);
-            }
+//            JSONArray sensorArr = new JSONArray();
+//            for(int i = 0; i < 4; i++)
+//            {
+//                JSONObject sensorJson;
+//                if(i == 2 )
+//                    sensorJson = getSensorJson("Gyro");
+//                else if( i ==0)
+//                    sensorJson = getSensorJson("Baro");
+//                else if(i==3)
+//                    sensorJson = getSensorJson("GPS");
+//                else
+//                    sensorJson = getSensorJson("Accl");
+//                sensorArr.put(sensorJson);
+//            }
             JSONObject finalRes = new JSONObject();
-            finalRes.put("Readings", sensorArr );
+            finalRes.put("Readings", processTask() );
             finalRes.put("Control", controlJson);
             tv.append( finalRes.toString() );
 
