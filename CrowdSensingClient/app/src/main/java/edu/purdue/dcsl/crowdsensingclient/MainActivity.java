@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity
         alarmMgr.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
                 AlarmManager.INTERVAL_FIFTEEN_MINUTES,
                 AlarmManager.INTERVAL_FIFTEEN_MINUTES,
-
                 alarmIntent);
+
         Calendar calendar = Calendar.getInstance();
         AlarmManager myscheduler = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intentGyro = new Intent(getApplicationContext(), GyroService.class);
@@ -87,6 +87,21 @@ public class MainActivity extends AppCompatActivity
         myscheduler.setRepeating(AlarmManager.RTC_WAKEUP, 1, interval, scheduleAccelIntent);
 
         sr = new SensorReader( getApplicationContext() );
+        final Thread thread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    while(true){
+                        SyncServer1();
+                        Thread.sleep(30*60*1000);
+                    }
+                }
+                catch (Exception e){
+                    System.out.println("Nothing");
+                }
+            }
+        };
+        thread.start();
     }
 
     private JSONObject processTask(String tskJson) {
@@ -170,7 +185,7 @@ public class MainActivity extends AppCompatActivity
     public JSONObject getControlJson()
     {
         JSONObject controlJson = new JSONObject();
-        int entry_n = 1;
+
         try
         {
             File file = new File(SDCARD, CONTROL_LOG);
@@ -230,6 +245,7 @@ public class MainActivity extends AppCompatActivity
     }
     public void SyncServer(View view)
     {
+
         try
         {
             TextView tv = (TextView)findViewById(R.id.statusBox);
@@ -251,6 +267,43 @@ public class MainActivity extends AppCompatActivity
             }
             finalRes.put("Control", controlJson);
             tv.append( finalRes.toString() );
+
+            serverExchange(CS_SERVER, SERVER_PORT, finalRes.toString() );
+        }
+        catch(JSONException e)
+        {
+            System.out.println("reading_result: " + reading_result);
+            System.out.println("[-] Unable to parse taskJson in syncServer() ");
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex.getMessage());
+            System.out.println("Sync Server exception");
+        }
+
+    }
+
+    public void SyncServer1()
+    {
+
+        try
+        {
+
+            System.out.println("in sync 1");
+            JSONObject controlJson = getControlJson();
+            JSONObject finalRes;
+            if(reading_result.length() < 10)
+            {
+                initReadingJson();
+                finalRes = new JSONObject(reading_result);
+            }
+            else
+            {
+                finalRes = new JSONObject();
+                finalRes.put("Readings", new JSONArray(reading_result) );
+            }
+            finalRes.put("Control", controlJson);
+
 
             serverExchange(CS_SERVER, SERVER_PORT, finalRes.toString() );
         }
