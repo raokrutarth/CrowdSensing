@@ -106,7 +106,7 @@ public class BaroService extends Service implements SensorEventListener {
             buf.append(text);
             buf.newLine();SimpleDateFormat sdf = new SimpleDateFormat("dd-hh-mm-ss");
             String res = sdf.format(new Date());
-            System.out.println("finished writing to [" + res+ "] " + logFile.getAbsolutePath() );
+            //System.out.println("finished writing to [" + res+ "] " + logFile.getAbsolutePath() );
             buf.close();
         }
         catch (IOException e)
