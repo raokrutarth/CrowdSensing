@@ -17,13 +17,7 @@ import java.io.InputStreamReader;
 
 import static android.content.ContentValues.TAG;
 
-/**
- * An {@link IntentService} subclass for handling asynchronous task requests in
- * a service on a separate handler thread.
- * <p>
- * TODO: Customize class - update intent actions, extra parameters and static
- * helper methods.
- */
+
 public class NetworkMonitorService extends IntentService {
 
     public NetworkMonitorService() {
@@ -42,49 +36,15 @@ public class NetworkMonitorService extends IntentService {
         try
         {
             String logfile = MainActivity.SDCARD + "/" + MainActivity.NETWORK_LOG;
-            String command="timeout 3 tcpdump -i wlan0"; // > " + logfile + "\n";
-            String command2="tcpdump -i wlan0 > " + logfile + "\n";
+            String command2="timeout 10 /data/local/tcpdump -i wlan0";
+            String command="timeout 10 /data/local/tcpdump -i wlan0 > " + logfile + "\n";
             String command3="tcpdump -i wlan0";
 
             System.out.println("[+] Writing tcpdump output to " + logfile);
-            System.out.println("[+] Running command: " + command);
+            // run the command using helper function
             String temp = sudoForResult(command);
+
             System.out.println("Command result: " + temp);
-
-
-
-
-            //sleep 2 second to ensure that the new process is listed by the system
-            Thread.sleep(2000);
-            // process.destroy();
-            /* get the pid of the process in which we exec tcpdump
-            * to do that we use the ps command, so we need to launch
-            * another process to achieve that
-            */
-            /*Process process2 = Runtime.getRuntime().exec("ps tcpdump");
-            //read the output of ps
-            BufferedReader br = new BufferedReader(new InputStreamReader(process2.getInputStream()));
-            temp = br.readLine();
-            temp = br.readLine();
-            System.out.println("[+] reading process2 line: " + temp);
-            //We apply a regexp to the second line of the ps output to get the pid
-            temp = temp.replaceAll("^root *([0-9]*).*","$1");
-            int pid = Integer.parseInt(temp);
-            //the ps process is no more needed
-            process2.destroy();
-
-            //to kill tcpdump process we create a new process to run the kill command
-            //this process terminate immediately so we don't need to kill it
-            String killCommand = "kill "+ pid;
-            Process process3 = Runtime.getRuntime().exec("su");
-            DataOutputStream os2 = new DataOutputStream(process3.getOutputStream());
-            os2.writeBytes(killCommand);
-            os2.flush();
-            os2.writeBytes("exit\n");
-            os2.flush();
-            os2.close();*/
-
-
 
             File dumpedFile = new File(MainActivity.SDCARD, MainActivity.NETWORK_LOG);
             if(!dumpedFile.exists())
@@ -107,10 +67,10 @@ public class NetworkMonitorService extends IntentService {
         {
             System.out.println("[-] IO error in network monitor service");
         }
-        catch (InterruptedException e)
+        /*catch (InterruptedException e)
         {
             System.out.println("[-] 2");
-        }
+        }*/
 
     }
 
@@ -119,11 +79,12 @@ public class NetworkMonitorService extends IntentService {
         DataOutputStream outputStream = null;
         InputStream response = null;
         try{
-            Process su = Runtime.getRuntime().exec("su");
+            Process su = Runtime.getRuntime().exec("su -c sh");
             outputStream = new DataOutputStream(su.getOutputStream());
             response = su.getInputStream();
 
-            for (String s : strings) {
+            for (String s : strings)
+            {
                 System.out.println("Running: " + s);
                 outputStream.writeBytes(s+"\n");
                 outputStream.flush();
@@ -148,9 +109,10 @@ public class NetworkMonitorService extends IntentService {
         }
         return res;
     }
+
     public static String readFully(InputStream is) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        byte[] buffer = new byte[1024];
+        byte[] buffer = new byte[2048];
         int length = 0;
         while ((length = is.read(buffer)) != -1) {
             baos.write(buffer, 0, length);
