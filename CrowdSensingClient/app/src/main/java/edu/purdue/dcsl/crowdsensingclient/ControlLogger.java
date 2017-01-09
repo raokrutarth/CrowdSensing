@@ -3,11 +3,15 @@ package edu.purdue.dcsl.crowdsensingclient;
 import android.Manifest;
 import android.app.Activity;
 import android.app.IntentService;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.media.MediaBrowserServiceCompat;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -19,22 +23,30 @@ import java.io.IOException;
  * a service on a separate handler thread.
  * helper methods.
  */
-public class ControlLogger extends IntentService
+public class ControlLogger extends BroadcastReceiver
 {
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        String message = "Hellooo, alrm worked ----";
+        System.out.println(message);
+        logControl(context);
+    }
+    /*
     @Override
     protected void onHandleIntent(Intent intent)
     {
         logControl();
     }
-
+    */
     /* This method will run every ~1hr and save
         the needed control info in a log file */
-    private void logControl()
+    public static void logControl(Context context)
     {
-        System.out.println("Control logger called");
+        Log.w("Scheduling", "Control logger called");
 
-        ControlInfoReader cir = new ControlInfoReader( getApplicationContext() );
-        String batteryInfo = cir.getBatteryStatus( getApplicationContext() );
+        ControlInfoReader cir = new ControlInfoReader( context);
+        String batteryInfo = cir.getBatteryStatus(context);
         String imei = cir.getImei();
         String signal = cir.getSignalStrength();
         String logEntry = "" + batteryInfo ;
@@ -87,7 +99,7 @@ public class ControlLogger extends IntentService
         return false;
     }
 
-    public ControlLogger() {
+    /*public ControlLogger() {
         super("ControlLogger");
     }
 
@@ -96,5 +108,6 @@ public class ControlLogger extends IntentService
     {
         super.onCreate();
     }
+    */
 
 }

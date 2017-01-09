@@ -72,11 +72,11 @@ public class AccelService extends Service implements SensorEventListener {
             SensorEvent event = events[0];
             Log.d("MY_APP", event.toString());
 
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-hh-mm-ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
             String ts = sdf.format(new Date());
             String readings = "" + event.values[0] + "_" + event.values[1] + "_" + event.values[2] + "_" +ts;
             appendReading(readings);
-            MainActivity.append("Accel " + ts);
+            MainActivity.append("Accel," + ts);
             accel = true;
             return null;
         }
@@ -105,7 +105,7 @@ public class AccelService extends Service implements SensorEventListener {
             buf.newLine();
             SimpleDateFormat sdf = new SimpleDateFormat("dd-hh-mm-ss");
             String res = sdf.format(new Date());
-            System.out.println("finished writing to [" + res+ "] " + logFile.getAbsolutePath() );
+            //System.out.println("finished writing to [" + res+ "] " + logFile.getAbsolutePath() );
             buf.close();
         }
         catch (IOException e)

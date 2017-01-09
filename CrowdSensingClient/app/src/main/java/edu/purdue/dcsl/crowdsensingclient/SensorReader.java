@@ -10,6 +10,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -159,7 +160,7 @@ public class SensorReader
                             && ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
                             && ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
                     {
-                        locManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, minTime, minDistance, locListener);
+                        locManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, minTime, minDistance, locListener,  Looper.getMainLooper());
                     }
                     else
                     {
@@ -184,7 +185,7 @@ public class SensorReader
                                 && ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
                                 && ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
                         {
-                            locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, minTime, minDistance, locListener);
+                            locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, minTime, minDistance, locListener,  Looper.getMainLooper());
                         }
                         if(locManager != null)
                         {
@@ -197,9 +198,9 @@ public class SensorReader
                         }
                     }
                 }
-                SimpleDateFormat sdf = new SimpleDateFormat("dd-hh-mm-ss");
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
                 String ts = sdf.format(new Date());
-                MainActivity.append("GPS " + ts);
+                MainActivity.append("GPS," + ts);
             }
         }
         catch (Exception e)

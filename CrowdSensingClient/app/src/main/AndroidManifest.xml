@@ -6,9 +6,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
         tools:ignore="ProtectedPermissions"/>
 
@@ -19,15 +20,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <service  android:name="edu.purdue.dcsl.crowdsensingclient.ControlLogger"
-            android:exported="false"   />
+
+        '<!--'
         <service
             android:name=".ControlLogger"
             android:exported="false"></service>
+'-->'
                 <service android:name=".GyroService"
                     android:exported="false"></service>
 
-            <service android:name=".AccelService"
+        <receiver android:name=".ControlLogger"></receiver>
+        <receiver android:name=".SyncService"></receiver>
+
+        <service android:name=".AccelService"
                 android:exported="false"></service>
 
             <service android:name=".BaroService"
