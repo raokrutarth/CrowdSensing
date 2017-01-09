@@ -109,7 +109,11 @@ public class GyroService extends Service implements SensorEventListener {
             SimpleDateFormat sdf = new SimpleDateFormat("dd-hh-mm-ss");
             String res = sdf.format(new Date());
             //System.out.println("finished writing to ["
+<<<<<<< HEAD
              //       + res+ "] " + logFile.getAbsolutePath() );
+=======
+            //        + res+ "] " + logFile.getAbsolutePath() );
+>>>>>>> 5108f783f6d6d7166666d2d691048b6545a618a0
             buf.close();
         }
         catch (IOException e)
